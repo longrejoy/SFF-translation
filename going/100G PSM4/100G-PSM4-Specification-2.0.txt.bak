@@ -1,0 +1,1074 @@
+WWW.PSM4.ORG 
+
+
+  100G PSM4 Specification 
+        Parallel Single Mode 4 lane 
+                    
+                    
+                9/15/2014 
+ 
+
+                Version 2.0 
+ 
+
+             
+
+
+ September 15, 2014           100G PSM4 Specification 
+
+This technical document has been created by the PSM4 MSA group.  However it is not a warranted 
+document, each transceiver supplier will have their own datasheet.  If the user wishes to find a 
+warranted document, they should  consult the datasheet of the chosen transceiver supplier.  The PSM4 
+MSA group reserves the rights at any time to add, amend or withdraw technical data contained in this 
+document. 
+ 
+THIS SPECIFICATION IS PROVIDED "AS IS" WITH NO WARRANTIES WHATSOEVER, INCLUDING ANY 
+WARRANTY OF MERCHANTABILITY, NONINFRINGEMENT, FITNESS FOR ANY PARTICULAR PURPOSE, OR 
+ANY WARRANTY OTHERWISE ARISING OUT OF ANY PROPOSAL, SPECIFICATION OR SAMPLE.  THE 
+AUTHORS DISCLAIMS ALL LIABILITY, INCLUDING LIABILITY FOR INFRINGEMENT OF ANY PROPRIETARY 
+RIGHTS, RELATING TO USE OF INFORMATION IN THIS SPECIFICATION.  NO LICENSE, EXPRESS OR 
+IMPLIED, BY ESTOPPEL OR OTHERWISE, TO ANY INTELLECTUAL PROPERTY RIGHTS IS GRANTED 
+HEREIN. 
+ 
+
+The following companies were members of the PSM4 Multi-Source Agreement on the date of the 
+published  document: 
+
+Avago Technologies 
+
+Brocade 
+
+Delta Electronics 
+
+Finisar 
+
+JDSU 
+
+Juniper Networks 
+
+Luxtera 
+
+MACOM 
+
+Microsoft 
+
+Oclaro 
+
+Panduit 
+
+US CONEC 
+
+ 
+
+ 
+
+Revision History: 
+
+PSM4 MSA Group                                                          Page 2 
+ September 15, 2014           100G PSM4 Specification 
+
+Draft        Date                  Revised Item 
+1.0          March 5 2014          Initial Public Release 
+1.1          April 21, 2014        Fixed references in Table 4,5.  
+1.2          June 16 2014          Removed reference to future variants in section 10.1. 
+1.3          June 18 2014          Added stressed receiver sensitivity spec to Table 5 
+1.4          July 20 2014          Added TX output and RX input skew specifications 
+1.5          August 4 2014         Revised TX OMA and RX sensitivity specifications 
+1.6          September 2 2014      Revised SRS conditions 
+1.7          September 10 2014     Revised RX reflectance 
+2.0          September 15, 2014    Formatting and removal of draft status 
+                                                                  
+
+                         
+
+
+PSM4 MSA Group                                                          Page 3 
+ September 15, 2014           100G PSM4 Specification 
+
+100G PSM4 Specification  
+
+Table of Contents 
+1. Introduction .......................................................................................................................... 7 
+2. References ............................................................................................................................ 8 
+3. 100G PSM4 functional specifications ......................................................................................... 8 
+ 3.1 100G PSM4 Transmit/Receive block diagram......................................................................... 8 
+ 3.2 100G PSM4 transmit function ............................................................................................. 9 
+ 3.3 100G PSM4 transmit disable function................................................................................... 9 
+ 3.4 100G PSM4 transmit fault function .....................................................................................10 
+ 3.5 100G PSM4 receive function ..............................................................................................10 
+ 3.6 100G PSM4 receive fault function.......................................................................................10 
+ 3.7 100G PSM4 global signal detect function .............................................................................10 
+ 3.8 100G PSM4 lane-by-lane signal detect function ....................................................................11 
+4. Lane assignments ..................................................................................................................11 
+5. Optical interface requirements for 100G PSM4 ..........................................................................11 
+ 5.1 Transmitter optical specifications .......................................................................................12 
+   5.1.1 Transmitter OMA, each lane (min) ................................................................................12 
+ 5.2 100G PSM4 receive optical specifications ............................................................................14 
+   5.2.1 Receiver sensitivity (OMA), each lane (max) ...................................................................14 
+   5.2.2 Stressed receiver sensitivity (OMA), each lane (max) .......................................................15 
+ 5.3 100G PSM4 illustrative link power budget............................................................................16 
+6. Definitions of optical parameters and measurement methods .....................................................17 
+ 6.1 Test patterns for optical parameters ...................................................................................17 
+   6.1.1 Multi-lane testing considerations .................................................................................17 
+ 6.2 Wavelength.....................................................................................................................18 
+ 6.3 Average optical power ......................................................................................................18 
+ 6.4 Optical Modulation Amplitude (OMA) .................................................................................18 
+ 6.5 Transmitter and dispersion penalty (TDP) ............................................................................18 
+   6.5.1 Reference transmitter requirements.............................................................................18 
+   6.5.2 Channel requirements ................................................................................................18 
+
+PSM4 MSA Group                                                          Page 4 
+ September 15, 2014           100G PSM4 Specification 
+
+   6.5.3 Reference receiver requirements .................................................................................19 
+   6.5.4 Test procedure ..........................................................................................................20 
+ 6.6 Extinction ratio ................................................................................................................20 
+ 6.7 Transmitter optical waveform (transmit eye) .......................................................................20 
+ 6.8 Receiver sensitivity...........................................................................................................21 
+ 6.9 Stressed receiver sensitivity ...............................................................................................21 
+7. Safety, installation, environment, and labeling...........................................................................22 
+ 7.1 General safety .................................................................................................................22 
+ 7.2 Laser safety .....................................................................................................................22 
+8. Fiber optic cabling model........................................................................................................22 
+9.  Characteristics of the fiber optic cabling (channel).....................................................................23 
+ 9.1 Optical fiber cable ............................................................................................................23 
+ 9.2 Optical fiber connection ....................................................................................................23 
+   9.2.1 Connection insertion loss ............................................................................................24 
+   9.2.2 Maximum discrete reflectance .....................................................................................24 
+10.  Medium Dependent Interface (MDI) ......................................................................................24 
+ 10.1 Optical lane assignments .................................................................................................25 
+ 10.2 Medium Dependent Interface (MDI) requirements..............................................................25 
+11 Definitions...........................................................................................................................26 
+ 
+
+
+PSM4 MSA Group                                                          Page 5 
+ September 15, 2014           100G PSM4 Specification 
+
+Table of Figures 
+Figure 1: PSM4 system block diagram ........................................................................................... 7 
+Figure 2: Block diagram for PSM4 transmit/receive path.................................................................. 9 
+Figure 3: Transmitter minimum OMA...........................................................................................13 
+Figure 4: Receiver sensitivity ......................................................................................................15 
+Figure 5: Stressed receiver sensitivity...........................................................................................16 
+Figure 6: Eye Mask ....................................................................................................................21 
+Figure 7: Fiber optic cabling model ..............................................................................................22 
+  
+Table of Tables 
+Table 1: Summary of PSM4.......................................................................................................... 7 
+Table 2: SIGNAL_DETECT and TX_DISABLE value definition..............................................................10 
+Table 3: PSM4 operating range ...................................................................................................11 
+Table 4: 100G PSM4 transmit characteristics.................................................................................12 
+Table 5: 100G PSM4 Receive Characteristics .................................................................................14 
+Table 6: 100G PSM4 illustrative link power budget ........................................................................16 
+Table 7: Test patterns ................................................................................................................17 
+Table 8: Test-pattern definitions and related sections ....................................................................17 
+Table 9: Transmitter compliance channel specifications..................................................................19 
+Table 10: Fiber optic cabling (Channel) Characteristics for PSM4 ......................................................23 
+Table 11: Fiber Specifications .....................................................................................................23 
+
+ 
+                         
+
+
+PSM4 MSA Group                                                          Page 6 
+ September 15, 2014           100G PSM4 Specification 
+
+1. Introduction 
+The 100G PSM4 Specification provides a low cost solution to long reach data center optical 
+interconnects. The growth in data center size along with the increased data rates of optical 
+interconnects has created a need for low cost solutions  capable of at least 500m reach.  The 100G PSM4 
+Specification is targeted to service that need on a parallel single mode infrastructure, as a critical need 
+of next generation data centers.  
+
+This specification defines a four lane (per direction) 100 Gb/s optical interface to single mode fiber 
+(SMF) media.  As shown in Figure 1, the 100G PSM4 Transceiver Module (100G PSM4 Module) provides 
+Transmit Optics and Receive Optics between the Host IC and the fiber optic media.  A particular form 
+factor, e.g. QSFP28 or CFP4, is not defined and the 100G PSM4 Transceiver Module may be 
+implemented in various form factors.   Since management and control interfaces are form factor 
+dependent, definition of these interfaces are outside the scope of this specification. 
+
+ 
+
+
+                                                                           
+
+                        Figure 1: PSM4 system block diagram 
+
+ 
+
+The 100G PSM4 Specification defines requirements for a point-to-point  100 Gb/s link over eight single 
+mode fibers up to at least 500 m.  Four identical and independent lanes are used for each signal 
+direction. Table 1 shows  the primary attributes of the 100G PSM4 Specification. 
+
+Table 1: Summary of PSM4 
+
+Parameter                 Value                      Units 
+Fiber type                Single Mode                 
+Number of fibers          8                           
+Nominal wavelength        1310                       nm 
+Required operating range  2-500                      m 
+Signaling rate, each lane 25.78125                   GBd 
+ 
+ 
+
+PSM4 MSA Group                                                          Page 7 
+ September 15, 2014           100G PSM4 Specification 
+
+PSM4 uses four identical lanes per direction.  The electrical connections from the module to the host 
+can be done using standard specific designs. Examples would be CAUI-4 (four electrical lanes with a 
+10dB host channel). See Fibre Channel FC-PI-6p for operation at 28Gbps over four electrical lanes with a 
+15dB host channel.  
+
+2. References 
+IEEE 802.3bm Annex 83E  (CAUI-4 chip to module) 
+
+IEEE 802.3bj Clause 91 (RS-FEC) 
+
+OIF CEI-28G-VSR  
+
+Infiniband EDR  
+
+QSFP: SFF-8665 
+
+CDFP 
+
+CFP2 
+
+CFP4 
+
+TIA-604-5D 
+
+FC-PI6p  
+
+3. 100G PSM4 functional specifications 
+The 100G PSM4 Module provides  a bi-directional electrical interface with the Host and a bi-directional 
+optical interface with the fiber media. It performs Transmit and Receive functions that convey data 
+between the Host and the media. 
+
+3.1 100G  PSM4 Transmit/Receive  block diagram 
+A 100G PSM4 Transmit/Receive block diagram is shown in Figure 2. The electrical and optical interface 
+compliance points are identified as TP1 for the electrical input signals, TP2 for the optical output signal, 
+TP3 for the optical input signal and TP4 for the electrical output signal.  Reference test 
+fixtures/compliance boards, are used to access the electrical signals for parametric measurements.  The 
+electrical signals, compliance boards and measurements are beyond the scope of this specification and 
+the reader is referred to the appropriate specification, e.g. OIF CEI-28G-VSR or 802.3 Annex 83E.  It is not 
+required that the compliance points are exposed or measurable as defined, however, if not, a 
+conforming implementation must behave as though the interfaces are compliant. The optical transmit 
+signal is defined at the output end of a singlemode fiber patch cord (TP2), between 2 m and 5 m in 
+length. Unless specified otherwise, all optical transmitter measurements and tests defined in section 5.1 
+are made at TP2. The optical receive signal is defined at the output of the fiber optic cabling (TP3). 
+
+PSM4 MSA Group                                                          Page 8 
+ September 15, 2014           100G PSM4 Specification 
+
+Unless specified otherwise, all optical receiver measurements and tests defined in section 5.2 are made 
+at TP3. 
+
+ 
+
+
+                                                                               
+                 Figure 2: Block diagram for PSM4 transmit/receive path 
+
+ 
+3.2 100G  PSM4 transmit function 
+The 100G PSM4 Transmit function shall convert the four electrical signals received from the host into 
+the same number of optical signals. The optical signals are delivered to a fiber media that contains four 
+parallel light paths for transmit, according to the transmit optical requirements in this specification.  
+Higher optical power level in each signal stream shall correspond to tx_bit = one 
+
+3.3 100G  PSM4 transmit disable function  
+ The TX_DISABLE function is a global parameter that disables the transmission  of optical signals on all 
+output optical ports and puts all of the optical outputs in the ‘off’ state. The TX_DISABLE function is 
+initiated via the management interface. The output of the transmitter when presented with the 
+TX_DISABLE request shall meet the requirements of Table 2. This 100G PSM4 Specification imposes  no 
+response time requirements on the transmit function when presented with the transmit disable request. 
+
+
+PSM4 MSA Group                                                          Page 9 
+ September 15, 2014           100G PSM4 Specification 
+
+3.4 100G  PSM4 transmit fault function 
+ The 100G PSM4 TX_FAULT function shall report its state via the management interface. TX_FAULT shall 
+be a global indicator of the state of the transmit output.  
+
+3.5 100G  PSM4 receive function 
+The 100G PSM Receive function shall convert the four optical signals received from the fiber media into 
+the same number of electrical signals according to the receive optical requirements in this specification. 
+The higher optical power level in each signal stream shall correspond to rx_bit = one. 
+
+3.6 100G PSM4 receive  fault function 
+The 100G PSM4 RX_FAULT function shall report its state via the management interface. RX_FAULT shall 
+be a global indicator of the state of the receiver input. 
+
+3.7 100G  PSM4 global signal detect function 
+The 100G PSM4 signal detect function shall report the state of SIGNAL_DETECT via the Management 
+interface.  SIGNAL_DETECT shall be a global indicator of the presence of optical signals on all lanes. The 
+value of the SIGNAL_DETECT parameter shall be generated according to the conditions defined in Table 
+2. The PMD receiver is not required to verify whether a compliant PSM4 signal is being received. This 
+100G PSM4 Specification imposes  no response time requirements on the generation of the 
+SIGNAL_DETECT parameter. 
+
+ 
+
+Table 2: SIGNAL_DETECT and TX_DISABLE value definition 
+
+Function             Receive conditions            Transmit conditions 
+SIGNAL_DETECT Fail   For any lane: Average optical power  
+                     at TP3 ≤ -30 dBm 
+SIGNAL_DETECT OK     For each lane:                 
+                     [(Optical power at TP3 ≥ -10.5 dBm  
+TX_DISABLE ON                                      Average Optical power at TP2 < -30 
+                                                   dBm 
+TX_DISABLE OFF                                     For all lanes:  
+                                                   Optical power at TP2 > minimum 
+                                                   OMA 
+ 
+ 
+As an unavoidable consequence of the requirements for the setting of the SIGNAL_DETECT parameter, 
+implementations must provide adequate margin between the input optical power level at which the 
+SIGNAL_DETECT parameter is set to OK, and the inherent noise level of the 100G PSM4 including the 
+effects of crosstalk, power supply  noise, etc. 
+
+Various implementations of the Signal Detect function are permitted by 100G PSM4 Specification, 
+including implementations that generate the SIGNAL_DETECT parameter values in response to the 
+
+
+PSM4 MSA Group                                                         Page 10 
+ September 15, 2014           100G PSM4 Specification 
+
+amplitude of the modulation of the optical signal and implementations that respond to the average 
+optical power of the modulated optical signal. 
+
+3.8 100G  PSM4 lane-by-lane  signal detect function 
+Various implementations of the Signal Detect function are permitted by 100G PSM4 Specification. Each 
+100G PSM4_signal_detect_i, where i represents the lane number in the range 0:3, shall be continuously 
+set in response to the optical signal on its associated lane, according to the requirements of Table 2. 
+
+4. Lane assignments 
+100G PSM4 provides a fixed relationship between electrical input and optical output lanes and between 
+optical input and electrical output.  The electrical input on electrical lane 0 will appear as an optical 
+output on optical lane 0.  The positioning of transmit and receive lanes at the optical interface is 
+specified in 10.1 
+
+5. Optical interface requirements for 100G PSM4  
+The required operating range for the PSM4 is defined in Table 3. A compliant 100G PSM4 operates on 
+single mode fibers according to the specifications of Table 11. A 100G PSM4 which exceeds the 
+operating range requirement while meeting all other optical specifications is considered compliant (e.g., 
+operating at 2000 m meets the operating range requirement of 2 m to 500 m). The signaling rate for a 
+lane of a  100G PSM4 shall be as defined in Table 4. The optical signal at the transmit and receive side of 
+the MDI is specified in Tables 4 and 5. Test points are defined in Figure 2. 
+
+The bit error ratio (BER) shall be less than 5 × 10-5.  Note for 100G Ethernet applications the error 
+statistics must be sufficiently  random that the BER results in an Ethernet frame loss ratio (see IEEE 
+802.3bj clause 1.4.209a) of less than 6.2 × 10–10 for 64-octet frames with minimum inter-packet gap 
+when processed according to IEEE 802.3bj Clause 91. Note: The use of the IEEE 802.3bj Clause 91 RS-FEC 
+will result in a corrected BER of less than 1x10-12. 
+
+Table 3: PSM4 operating range 
+
+     100G PSM4 type         Required operating range 
+         PSM4                     2 m to 500 m 
+ 
+
+                         
+
+
+PSM4 MSA Group                                                         Page 11 
+ September 15, 2014               100G PSM4 Specification 
+
+5.1 Transmitter  optical specifications 
+Each lane of a 100G PSM4 optical transmitter shall meet the specifications of Table 4 per the definitions 
+in section 6.  
+
+Table 4: 100G PSM4 transmit characteristics 
+
+Parameter                                       Unit   Value 
+
+Signaling rate, each lane (range)               GBd    25.78125  +/- 100 ppm 
+Lane wavelengths (range)                        nm     1295 to 1325  
+
+Side-mode suppression ratio (SMSR)(min)         dB     30 
+Total average launch power (max)                dBm    8.0  
+
+Average launch power, each lane (max)a          dBm    2.0  
+
+Average launch power, each lane (min)b          dBm    -9.4  
+
+Optical Modulation Amplitude (OMA) (max)        dBm    2.2 
+
+Transmitter and dispersion penalty (TDP), each lane (max)  dB  2.9 
+Transmit OMA, each lane (min)                   dBm    See section 5.1.1 
+
+Average launch power of OFF transmitter, each lane (max)  dBm  -30 
+
+Extinction ratio (min)                          dB     3.5 
+Optical return loss tolerance (max)             dB     20 
+
+Transmitter reflectance (max)c                  dB     -12 
+
+Transmitter eye mask definition {X1, X2, X3, Y1, Y2,  Y3}d   {0.31,0.4,0.45,0.34,0.38,0.4} 
+a Total average launch power is the combined average launch power from all four lanes. 
+b
+  Average launch power, each lane (min) is informative and not the principal indicator of signal strength. A transmitter w ith 
+launch power below this value cannot be compliant; however, a value above this does not ensure compliance.  
+c
+ Transmitter reflectance is defined looking into the transmitter. 
+d See Figure 6 
+ 
+ 
+
+5.1.1 Transmitter  OMA, each lane (min) 
+ 
+The OMA of each transmit lane shall meet Equation 1 which is illustrated in Figure 3 for both maximum 
+TDP and for TDP less than or equal to 0.8 dB. 
+
+ 
+ 
+ 
+ 
+
+PSM4 MSA Group                                                                  Page 12 
+ September 15, 2014           100G PSM4 Specification 
+
+                              (       )  
+                     (                         )      (        )       
+                                    
+ 
+      
+                                        
+                                                
+                                                          
+                                                                         
+                                        
+
+                            Equation 1: Transmitter OMA 
+
+      0
+
+      -1
+
+
+
+      -2
+      
+      -3
+
+      -4
+                                 For Max TDP 
+
+
+      -5
+     OMA (dBm)  min OMA
+
+      -6
+                                 For TDP ≤ 0.8 dB 
+      -7
+
+      -8
+       1295      1300      1305      1310      1315      1320      1325
+                                 wavelength (nm)                            
+
+                        Figure 3: Transmitter minimum OMA  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PSM4 MSA Group                                                         Page 13 
+ September 15, 2014           100G PSM4 Specification 
+
+5.2 100G PSM4 receive  optical specifications 
+The 100G PSM4 receiver shall meet the specifications defined in Table 5 per the definitions in section 6 
+ 
+Table 5: 100G PSM4 Receive Characteristics 
+
+Parameter                                   Unit     Value 
+
+Signaling rate, each lane (range)           GBd      25.78125  +/- 100 ppm 
+
+Lane wavelengths (range)                    nm       1295 to 1325  
+
+Damage thresholda                           dBm      3.0 
+
+Average receive power, each lane (max)      dBm      2.0 
+
+Average receive power, each lane (min)b     dBm      -12.66 
+
+Receive power, each lane (OMA) (max)        dBm      2.2 
+
+Receiver reflectance (max)                  dB       -26 
+
+Receiver sensitivity (OMA), each lane (max)c  dBm    See section 5.2.1  
+
+Stressed receiver sensitivity (OMA), each lane (max)d dBm See section 5.2.2 
+
+Conditions of stressed receiver sensitivity test: 
+Vertical eye closure penalty, each lane     dB       1.9 
+
+Stressed eye J2 Jitter, each lane           UI       0.27 
+
+Stressed eye J4 Jitter, each lane           UI       0.39 
+Stressed eye mask definition {X1, X2, X3, Y1,  Y2, Y3}e  {0.24,0.5,0.5,0.24,0.24,0.4} 
+ a The receiver shall be able to tolerate, without damage, continuous exposure to an optical input 
+ signal having this average power level. 
+  b Average receive power, each lane (min) is informative and not the principal indicator of signal 
+ strength. A received power below this value cannot be compliant; however, a value above this does 
+ not ensure compliance. 
+  c Receiver sensitivity (OMA), each lane (max) is informative. 
+ d Measured with conformance test signal at TP3 (see IEEE 802.3-2012 clause 87.8.11 as an example 
+ for test method) for BER = 5x10-5 
+ e See Figure 6 
+  
+                                                                               
+5.2.1 Receiver sensitivity  (OMA), each lane (max) 
+Receiver sensitivity, which is defined for an ideal input signal, is informative and compliance is not 
+required. The receiver sensitivity is given in Equation 2 which is illustrated in Figure 4. 
+
+                                      (       )  
+                            (                          )       
+                                            
+
+PSM4 MSA Group                                                         Page 14 
+ September 15, 2014           100G PSM4 Specification 
+
+ 
+        
+                                     (   )                      
+                        (     )    
+                           Equation 2: Receiver sensitivity 
+                                                                               
+   
+
+
+            0
+          
+           -2
+
+           -4
+
+           -6
+
+           -8
+
+          -10
+
+
+
+          -12
+         Receiver sensitivity OMA max (dBm)  max  OMA sensitivity  Receiver
+          -14
+            1295     1300    1305     1310    1315     1320    1325
+                                 wavelength (nm)                       
+                           Figure 4: Receiver sensitivity 
+
+                                        
+
+5.2.2 Stressed  receiver sensitivity  (OMA), each lane (max) 
+Stressed receiver sensitivity, measured under the conditions given in table 5, shall meet Equation 3 
+which is illustrated in Figure 5. 
+
+                                         (       )  
+                                (                         )       
+                                               
+
+        
+                                                      (   )                      
+                        (     )    
+                        Equation 3: Stressed receiver sensitivity              
+   
+
+ 
+
+
+PSM4 MSA Group                                                         Page 15 
+ September 15, 2014                        100G PSM4 Specification 
+
+ 
+
+
+                0
+
+               -2
+
+               -4
+
+               -6
+
+               -8
+
+              -10
+
+              -12
+
+             Stressed receiver sensitivyt OMA max max (dBm)  OMA sensitivyt Stressed receiver  -14
+                 1295        1300         1305        1310         1315        1320         1325
+                                                wavelength (nm)                                       
+
+                                       Figure 5: Stressed receiver sensitivity 
+5.3 100G     PSM4 illustrative link power budget 
+Illustrative power budgets and penalties for 100G PSM4 optical channels are shown in Table 6. 
+
+Table 6: 100G PSM4 illustrative link power budget 
+
+Parameter                                                              Unit                 Value 
+
+Power budget (at max TDP)                                              dB           6.2 
+
+Operating distance                                                     m            500 
+
+Channel insertion loss (max) a                                         dB           3.3 
+Maximum discrete reflectanceb                                          dB           -35  
+Allocation for penalties (at max TDP)c                                 dB           2.9 
+
+Additional insertion loss allowed                                      dB           0  
+a
+ Channel insertion loss is calculated using the maximum distance specified in Table 3 and cabled optical fiber attenuation of 
+0.514 dB/km at 1295 nm plus an allocation for connection and splice loss given in 9.2.1.  
+b Per ISO/IEC  11801 
+c Link penalties are used for link budget calculations. They are not requirements and are not meant to be tested.  
+
+
+PSM4 MSA Group                                                                                        Page 16 
+ September 15, 2014           100G PSM4 Specification 
+
+6. Definitions of optical parameters and measurement methods 
+All transmitter optical measurements shall be made through a short patch cable, between 2 m and 5 m 
+in length, unless otherwise specified. 
+
+6.1 Test patterns for optical parameters 
+While compliance is to be achieved in normal operation, specific test patterns are defined for 
+measurement consistency and to enable measurement of some parameters. Table 7 gives the test 
+patterns to be used in each measurement, unless otherwise specified, and also lists references to the 
+sections in which each parameter is defined. Any of the test patterns given for a particular test in Table 8 
+may be used to perform that test. The test patterns used in this specification are shown in Table 7. 
+ 
+Table 7: Test patterns 
+
+        Pattern no.            Pattern Description         Pattern defined in 
+Square wave               Square wave (8 ones, 8 zeros) IEEE 802.3 clause 83.5.10 
+3                         PRBS31                     IEEE 802.3 clause 83.5.10 
+4                         PRBS9                      IEEE  802.3 clause 83.5.10 
+5                         RS-FEC  encoded Scrambled idle* IEEE  802.3 clause 82.2.10 
+*The pattern defined in IEEE 802.3 clause 82.2.10 as encoded by IEEE 802.3 Clause 91 RS-FEC for PSM4 
+ 
+ 
+Table 8: Test-pattern definitions and related sections 
+
+        Parameter                   Pattern                   Related  
+
+Wavelength                3,5 or valid 100GBASE-R signal     Section 6.2 
+Side mode suppression ratio 3,5 or valid 100GBASE-R              - 
+Average optical power     3,5 or valid 100GBASE-R            Section 6.3 
+OMA (modulated optical power) Square wave or 4               Section 6.4 
+Extinction ratio          3,5 or valid 100GBASE-R            Section 6.6 
+Transmitted optical waveform (eye 3,5 or valid 100GBASE-R    Section 6.7 
+mask) 
+TDP (transmitter and dispersion 3 or 5                       Section 6.5 
+penalty) 
+Stressed receiver sensitivity 3 or 5                         Section 6.9 
+Calibration of OMA for receiver Square wave or 4         IEEE 802.3  clause 87.8.11 
+tests 
+Vertical eye closure penalty 3 or 5                      IEEE 802.3  clause 87.8.11 
+calibration 
+ 
+ 
+
+6.1.1 Multi-lane testing  considerations 
+TDP is defined for each lane, at the BER specified in section 5 on that lane. Stressed receiver sensitivity 
+and receiver jitter tolerance are defined for an interface at the BER specified in section 5. The interface 
+BER is the average of the four BERs of the receive lanes when they are stressed. 
+Measurements with Pattern 3 (PRBS31) allow lane-by-lane BER measurements. Measurements with 
+Pattern 5 (scrambled idle) give the interface BER if all lanes are stressed at the same time. If each lane is 
+stressed in turn, the BER is diluted by the three unstressed lanes, and the BER for that stressed lane 
+alone must be found, e.g., by multiplying by four if the unstressed lanes have low BER. To allow TDP 
+measurement with Pattern 5, unstressed lanes for the error detector may be created by setting the 
+
+PSM4 MSA Group                                                         Page 17 
+ September 15, 2014           100G PSM4 Specification 
+
+power at the reference receivers well above their sensitivities, or by copying the contents of the 
+transmit lanes not under BER test to the error detector by other means. For stressed receiver sensitivity 
+and receiver jitter tolerance measurements, unstressed lanes may be created by setting the power at 
+the receiver under test well above its sensitivity and/or not stressing those lanes with ISI and jitter, or by 
+other means. Each receive lane is stressed in turn while all are operated. All aggressor lanes are 
+operated as specified. To find the interface BER, the BERs of all the lanes when stressed are averaged. 
+Where relevant, parameters are defined with all co-propagating and counter-propagating lanes 
+operational so that crosstalk effects are included. Where not otherwise specified, the maximum 
+amplitude (OMA or VMA) for a particular situation is used, and for counter-propagating lanes, the 
+minimum transition time is used. Alternative test methods that generate equivalent results may be 
+used. While the lanes in a particular direction may share a common clock, the Tx and Rx directions are 
+not synchronous  to each other. If Pattern 3 is used for the lanes not under test using a common clock, 
+there is at least 31 UI delay between the PRBS31 patterns on one lane and any other lane. 
+
+6.2 Wavelength  
+The wavelength of each optical lane shall be within the range given in Table 4 if measured per TIA/EIA-
+455-127-A or IEC 61280-1-3. The lane under test is modulated using the test pattern defined in Table 8. 
+ 
+6.3 Average  optical power 
+The average optical power of each lane shall be within the limits given in Table 4 if measured using the 
+methods given in IEC 61280-1-1. The average optical power is measured using the test pattern defined 
+in Table 8, per the test setup in IEEE 802.3 clause 53 Figure 53-6. 
+ 
+6.4 Optical Modulation Amplitude (OMA) 
+OMA shall be as defined in IEEE 802.3 clause 52.9.5 for measurement with a square wave (8 ones, 8 
+zeros) test pattern or IEEE 802.3 clause 68.6.2 (from the variable Measured OMA in IEEE 802.3 clause 
+68.6.6.2) for measurement with a PRBS9 test pattern. 
+
+6.5 Transmitter  and dispersion penalty (TDP)  
+Transmitter and dispersion  penalty (TDP) shall be as defined in IEEE 802.3 clause 52.9.10 with the 
+exception that each optical lane is tested individually. The measurement procedure for PSM4 is detailed 
+in 6.5.1 to 6.5.4. The lanes not under test shall be operating with PRBS31 or valid 100GBASE-R bit 
+streams. 
+
+6.5.1 Reference transmitter  requirements  
+The reference transmitter is a high-quality instrument-grade device, which can be implemented by a CW 
+laser modulated by a high-performance modulator. The basic requirements are as follows: 
+a) Rise/fall times of less than 12 ps at 20% to 80%.  
+b) The output optical eye is symmetric and passes the transmitter optical waveform test of 5.7. 
+c) In the center 20% region of the eye, the worst-case vertical eye closure penalty as defined in 
+IEEE   802.3 clause 87.8.11.2 is less than 0.5 dB. d) Total Jitter less than 0.2 UI peak-to-peak. e) RIN of         
+less than –140 dB/Hz.  
+f) Transmitter reflectance less than –50 dB. 
+ 
+
+6.5.2 Channel requirements  
+The transmitter is tested using an optical channel that meets the requirements listed in Table 9. 
+
+PSM4 MSA Group                                                         Page 18 
+ September 15, 2014           100G PSM4 Specification 
+
+ 
+
+Table 9: Transmitter compliance channel specifications 
+
+Dispersion (ps/nm)a              Insertion  Optical Return lossc Max mean DGD 
+Minimum         Maximum          lossb 
+0.011625xλx[1-  0.011625xλx[1-   Minimum    20 dB            2.24 ps 
+(1324 / λ)4]    (1300 / λ)4] 
+a
+ The dispersion is measured for the wavelength of the device under test (in nm). The coefficient assumes 500 m for PSM4.  
+b
+  There is no intent to stress the sensitivity of the BERT’s optical receiver. 
+c
+  The optical return loss is applied at TP2. 
+ 
+A PSM4 transmitter is to be compliant with a total dispersion  at least as negative as the “minimum 
+dispersion” and at least as positive as the “maximum dispersion”  columns specified in Table 9 for the 
+wavelength of the device under test. This may be achieved with channels consisting of fibers with 
+lengths chosen to meet the dispersion  requirements.  
+ 
+To verify that the fiber has the correct amount of dispersion,  the measurement method defined in IEC 
+60793-1-42 may be used. The measurement is made in the linear power regime of the fiber.  
+ 
+
+The channel provides an optical return loss specified in Table 9. The state of polarization of the back 
+reflection is adjusted to create the greatest RIN.  
+
+The mean DGD of the channel is to be less than the value specified in Table 9. 
+
+6.5.3 Reference receiver requirements  
+The reference receiver is required to have the bandwidth given in section 6.9. The sensitivity of the 
+reference receiver is limited by Gaussian noise. The receiver has minimal threshold offset, deadband, 
+hysteresis, baseline wander, deterministic jitter, or other distortions. Decision sampling has minimal 
+uncertainty and setup/hold times.  
+ 
+The nominal sensitivity of the reference receiver, S, is measured in OMA using the setup shown in IEEE 
+802.3 Figure 52-12 of clause  52.9.10.3 without the test fiber and with the transversal filter removed. The 
+sensitivity S must be corrected for any significant reference transmitter impairments including any 
+vertical eye closure. It is measured while sampling at the eye center or corrected for off-center 
+sampling. It is calibrated at the wavelength of the transmitter under test. 
+
+ 
+Center of the eye is defined as the time halfway between the left and right sampling points within the 
+eye where the measured BER is greater than or equal to 1x10-3 
+ 
+The clock recovery unit (CRU) used in the TDP measurement has a corner frequency of 10 MHz and a 
+slope of 20 dB/decade. When using a clock recovery unit as a clock for BER measurements, passing of 
+low-frequency jitter from the data to the clock removes this low-frequency jitter from the 
+measurement. 
+ 
+
+PSM4 MSA Group                                                         Page 19 
+ September 15, 2014           100G PSM4 Specification 
+
+6.5.4 Test procedure  
+The test procedure is as defined in IEEE 802.3 clause 52.9.10.4 with the exception that all lanes are 
+operational in both directions (transmit and receive) and the BER as specified in section 5 has to be met 
+by the lane under test on its own. 
+ 
+6.6 Extinction ratio  
+The extinction ratio of each lane shall be within the limits given in Table 4 if measured using the 
+methods specified in IEC 61280-2-2. The extinction ratio is measured using the test pattern defined in 
+Table 8.  
+NOTE—Extinction ratio and OMA are defined with different test patterns (see Table 8) 
+6.7 Transmitter  optical waveform  (transmit eye)  
+The required optical transmitter pulse shape characteristics are specified in the form of a mask of the 
+transmitter eye diagram as shown in Figure 6. The transmitter optical waveform of a port transmitting 
+the test pattern specified in Table 7 shall meet specifications of Table 5 when using a receiver with the 
+fourth-order Bessel-Thomson response having a transfer function given by Equation 4. See Section 6.1.1 
+for multi-lane test considerations. 
+ 
+ 
+                                            
+                   ( )                                      
+                                                           
+ 
+     : 
+ 
+                           
+                                                                            
+                           
+                  Equation 4: Bessel Thompson Filter transfer function 
+
+  
+Normalized times of 0 and 1 on the unit interval scale are determined by the eye crossing means 
+measured at the average value of the eye pattern. A clock recovery unit (CRU) is used to trigger the 
+oscilloscope  for mask measurements. It has a high-frequency corner bandwidth of 10 MHz and a slope 
+of -20 dB/decade. The CRU tracks acceptable levels of low-frequency jitter and wander. The filter 
+nominal reference frequency fr is 19.34 GHz and the filter tolerances are as specified for STM-64 in ITU-T 
+G.691.  The Bessel-Thomson receiver is not intended to represent the noise filter used within a 
+compliant optical receiver, but is intended to provide uniform measurement conditions  at the 
+transmitter. Compensation may be made for variation of the reference receiver filter response from an 
+ideal fourth-order Bessel-Thomson response.  
+ 
+ 
+ 
+
+
+PSM4 MSA Group                                                         Page 20 
+ September 15, 2014           100G PSM4 Specification 
+
+
+                                                                   
+                               Figure 6: Eye Mask 
+
+ 
+6.8 Receiver  sensitivity  
+Receiver sensitivity, which is defined for an ideal input signal, is informative and compliance is not 
+required. If measured, the test signal should  have negligible impairments such as intersymbol 
+interference (ISI), rise/fall times, jitter and RIN. Instead, the normative requirement for receivers is 
+stressed receiver sensitivity. 
+
+6.9 Stressed  receiver  sensitivity  
+Stressed receiver sensitivity shall be within the limits given in Table 5 if measured using the method 
+defined in IEEE 802.3-2012 clause 52.9.9 with the conformance test signal at TP3 and with the following 
+exceptions: 
+a) The reference test procedure for a single lane is defined in 52.9.9. Multi-lane considerations for PSM4 
+modules are given in Section 6.1.1 
+b) The sinusoidal  jitter is at a fixed 200 MHz frequency and between 0 and 0.05 UI peak-to-peak 
+amplitude. 
+c) The sinusoidal  amplitude interferer is replaced by a Gaussian noise generator. 
+d) The reference receiver used to verify the conformance test signal is required to have the bandwidth 
+given in 6.9. The fourth-order Bessel-Thomson filter is replaced by a low-pass filter followed by a limiter 
+and a fourth-order Bessel-Thomson  filter. 
+e) The Gaussian noise generator, the amplitude of the sinusoidal  jitter, and the Bessel-Thomson filter 
+are adjusted so that the VECP, J2 Jitter and J4 Jitter specifications given in Table 5 are simultaneously 
+met (the random noise effects such as RIN, random clock jitter do not need to be minimized). 
+
+PSM4 MSA Group                                                         Page 21 
+ September 15, 2014           100G PSM4 Specification 
+
+f) After making the adjustments in e) the resultant signal is required to pass the mask defined in Figure 5 
+with a hit ratio of less than 5 × 10–5 using the stressed eye mask coordinates in Table 5.  
+g) The pattern for the received compliance signal is specified in Table 8. 
+h) The interface BER of the PMD receiver is the average of the BER of all receive lanes while stressed at 
+the specified receive OMA. 
+i) Where CAUI-4 is exposed, a PMD receiver is considered compliant if it meets the CAUI-4 module 
+electrical output specifications at TP4. 
+
+7. Safety, installation, environment, and labeling 
+7.1 General safety  
+All equipment subject to this clause shall conform to IEC 60950-1. 
+7.2 Laser safety  
+PSM4 optical transceivers shall conform to Hazard Level 1 laser requirements as defined in IEC 60825-1 
+and IEC 60825-2, under any condition of operation. This includes single fault conditions whether coupled 
+into a fiber or out of an open bore.  
+ 
+Conformance to additional laser safety standards may be required for operation within specific 
+geographic regions.  
+ 
+Laser safety standards and regulations require that the manufacturer of a laser product provide 
+information about the product’s laser, safety features, labeling, use, maintenance, and service. This 
+documentation explicitly defines requirements and usage restrictions on the host system necessary to 
+meet these safety certifications. 
+
+8. Fiber optic cabling model  
+The fiber optic cabling model is shown in Figure 7. 
+
+ 
+
+
+                                                                               
+ 
+                         Figure 7: Fiber optic cabling model 
+
+The channel insertion loss is given in Table 10. A channel may contain additional connectors as long as 
+the optical characteristics of the channel, such as attenuation, dispersion, reflections, and polarization 
+
+PSM4 MSA Group                                                         Page 22 
+ September 15, 2014           100G PSM4 Specification 
+
+mode dispersion  meet the specifications. Insertion loss measurements of installed fiber cables are made 
+in accordance with ANSI/TIA/EIA-526-7/method A-1. The fiber optic cabling model (channel) defined 
+here is the same as a simplex fiber optic link segment. The term channel is used here for consistency 
+with generic cabling standards. 
+
+9.  Characteristics of the fiber optic cabling (channel) 
+The PSM4 fiber optic cabling shall meet the specifications defined in Table 10. The fiber optic cabling 
+consists of one or more sections of fiber optic cable and any intermediate connections required to 
+connect sections together. 
+
+Table 10: Fiber optic cabling (Channel) Characteristics for PSM4 
+
+      Description             Value              Unit 
+Operating distance(max)        500                m 
+Positive dispersion  (max)     1.2               ps/nm 
+Negative dispersion (min)      -1.4              ps/nm 
+Channel insertion loss  (max)  3.26               dB 
+Channel insertion loss  (min)   0                 dB 
+DGD_max                        2.24               ps 
+Optical return loss  (min)      35                dB 
+Cable skew (max)                79                ns 
+
+Cable skew variationd (max)    2.4                ns 
+a 
+These channel insertion loss values include cable, connectors, and splices. 
+ b 
+ Over the wavelength range 1295 nm to 1325 nm.   
+c 
+Differential Group Delay (DGD) is the time difference at reception between the fractions of a pulse that were transmitted in 
+the two principal states of polarization of an optical signal. DGD_max is the maximum differential group delay that the system 
+must tolerate. 
+d An additional 40 ps of skew variation could be caused by wavelength changes, which are attributable to the transmitter not 
+the channel. 
+9.1 Optical fiber cable  
+The fiber optic cable requirements are satisfied by cables containing IEC 60793-2-50 type B1.1 
+(dispersion  un-shifted single-mode), type B1.3 (low water peak single-mode), or type B6_a (bend 
+insensitive) fibers or the requirements in Table 11 where they differ.  
+
+ 
+Table 11: Fiber Specifications 
+
+           Description                     Value                   Unit 
+Nominal fiber specification wavelength     1310                    nm 
+                          
+Cabled optical fiber attenuation (max)      0.5a                  dB/∙km 
+
+Zero dispersion wavelength (λ0)         1300≤ λ0≤1324              nm 
+                                                                     2∙  
+Dispersion slope (max) (S0)                0.093                 ps/nm km
+a
+The 0.5 dB/km attenuation is provided for Outside Plant cable as defined in ANSI/TIA 568 -C.3. 
+9.2 Optical fiber connection 
+An optical fiber connection, as shown in Figure 5, consists  of a mated pair of optical connectors. 
+
+PSM4 MSA Group                                                         Page 23 
+ September 15, 2014           100G PSM4 Specification 
+
+9.2.1 Connection insertion  loss 
+The maximum link distance is based on an allocation of 3 dB total connection and splice loss. For 
+example, this allocation supports  six connections with an average insertion loss per connection of 0.5 
+dB. Connections  with different loss characteristics may be used provided the requirements of Table 10 
+are met. 
+
+9.2.2 Maximum discrete reflectance 
+The maximum discrete reflectance shall be less than –35 dB per ISO/IEC 11801. 
+
+10.  Medium Dependent Interface (MDI) 
+The 100G PSM4 module is coupled to the fiber optic cabling at the MDI. The MDI is the interface 
+between the 100G PSM4 module and the “fiber optic cabling” (as shown in Figure 5). The PSM4 100G 
+module is coupled to the fiber optic cabling through one connector plug into the MDI optical receptacle 
+as shown in Figure 7. Example constructions of the MDI include the following:  
+ 
+a) 100G PSM4 with a connectorized fiber pigtail plugged into an adapter; 
+b) 100G PSM4 receptacle. 
+                         
+
+
+PSM4 MSA Group                                                         Page 24 
+ September 15, 2014           100G PSM4 Specification 
+
+10.1 Optical lane assignments  
+The 12 fiber MPO optical lane assignments are shown in Figure 8. The four transmit and four receive 
+optical lanes of PSM4 shall occupy the positions  depicted in Figure 8 when looking into the MDI 
+receptacle with the connector keyway feature on top. The interface contains eight active lanes within 
+twelve total positions. The central 4 fibers may be physically present. 
+ 
+ 
+ 
+
+ 
+
+
+                                                                       
+
+ 
+
+    Figure 8: 12 fiber MPO optical lane assignments (looking into module optical port (MDI)) 
+
+                                        
+10.2 Medium Dependent Interface (MDI) requirements      
+The MDI shall meet the dimensional  specifications of IEC 61754-7-1 interface 7-1-9: MPO device 
+receptacle, angled interface. The plug terminating the optical fiber cabling shall meet the dimensional 
+specifications of IEC 61754-7-1 interface 7-1-1: MPO female plug connector, down-angled interface for 2 
+to 12 fibers. The MDI shall optically mate with the plug on the optical fiber cabling. Figure 9 shows an 
+MPO female plug connector with down-angled interface, and an MDI as an active device receptacle with 
+angled interface. 
+
+
+PSM4 MSA Group                                                         Page 25 
+ September 15, 2014               100G PSM4 Specification 
+
+
+                                                                                  
+
+Figure 9: MPO female plug with down-angled  interface and  MDI active device receptacle with angled interface 
+
+The MDI shall meet the interface performance specifications of IEC 61793-021-2 for performance level 
+D/3.  
+
+NOTE—Transmitter compliance testing is performed at TP2 as defined in 2.1, not at the MDI. 
+ 
+11 Definitions 
+ 
+MDI- Medium Dependent Interface: The mechanical and electrical or optical interface between 
+the transmission medium and the PHY 
+
+MPO- The MPO-style connectors are most commonly defined by two different documents: 
+
+       • IEC-61754-7  is the commonly cited standard for MPO connectors internationally 
+       • EIA/TIA-604-5-D, also known as FOCIS 5, is the most common standard sited for in the US 
+
+
+Dispersion slope (S0) - The rate of change of dispersion with respect to wavelength at the zero-dispersion point  
+ 
+TP1 – Electrical input to a PSM4 optical module 
+ 
+TP2 – Optical output of a PSM4 optical module 
+ 
+TP3 – Optical input of a PSM4 optical module 
+ 
+TP4 – Electrical output of a PSM4 optical module 
+
+Eye Mask – A template that bounds the dynamic signal characteristics in terms of amplitude and time.  
+
+Extinction Ratio - the ratio of the high optical power to the low optical power 
+ 
+OMA – Optical Modulation Amplitude: OMA is the difference in optical power for the nominal “1” and “0” levels 
+of the optical signal 
+ 
+CAUI-4 - 100G  Attachment Unit Interface-4 lanes: Defined in IEEE 802.3bm Annex 83E, CAUI-4 defines an 
+optional 4 lane electrical interface for the PSM4 optical module. 
+
+PSM4 MSA Group                                                                  Page 26 
+ 
