@@ -1,0 +1,1344 @@
+ SFF specifications are available at http://www.snia.org/sff/specifications   
+                                  or ftp://ftp.seagate.com/sff  
+ 
+ 
+                                                 
+ 
+ 
+            This specification was developed by the SFF Committee prior to it 
+            becoming the SFF TA (Technology Affiliate) TWG (Technical Working 
+                Group) of SNIA (Storage Networking Industry Association). 
+ 
+ 
+ 
+ 
+ 
+The information below should be used instead of the equivalent herein. 
+ 
+POINTS OF CONTACT:  
+ 
+       Chairman SFF TA TWG  
+       Email: SFF-Chair@snia.org  
+ 
+ 
+ 
+If you are interested in participating in the activities of the SFF TWG, the 
+membership application can be found at: 
+   http://www.snia.org/sff/join 
+ 
+The complete list of SFF Specifications which have been completed or are currently 
+being worked on can be found at: 
+   http://www.snia.org/sff/specifications/SFF-8000.TXT 
+ 
+The operations which complement the SNIA's TWG Policies & Procedures to guide the SFF 
+TWG can be found at: 
+   http://www.snia.org/sff/specifications/SFF-8032.PDF 
+ 
+ 
+Suggestions for improvement of this specification will be welcome, they should be 
+submitted to:  
+   http://www.snia.org/feedback 
+ 
+  Published                                                              SFF-8679 Rev 1.7  
+ 
+ SFF Committee documentation may be purchased in electronic form. 
+ SFF specifications are available at ftp://ftp.seagate.com/sff 
+ 
+ 
+ 
+                                           SFF Committee  
+ 
+                                              SFF-8679 
+ 
+                                         Specification for  
+ 
+                             QSFP+ 4X Base Electrical Specification  
+ 
+                                  Rev 1.7       August 12, 2014  
+ 
+ 
+ 
+Secretariat:  SFF Committee 
+ 
+Abstract: This specification defines the contact pads, the electrical (copper), the power 
+supply, the ESD and the thermal characteristics of the pluggable QSFP10/14/28 
+Module/Direct Attach cable plug and connector. 
+ 
+This document provides a common specification for systems manufacturers, system 
+integrators, and suppliers. This is an internal working document of the SFF Committee, an 
+industry ad hoc group.  
+ 
+This specification is intended to supersede and extend INF-8438 QSFP (Quad SFP) 4 Gb/s 4X 
+Transceiver and SFF-8436 QSFP+ 10 Gb/s 4X Pluggable Transceiver by adding support for 
+higher transfer rates and higher power classes.  
+ 
+This specification is made available for public review, and written comments are 
+solicited from readers. Comments received by the members will be considered for inclusion 
+in future revisions of this specification. 
+ 规范定义了可插拔QSFP10 / 14/28模块/直接连接电缆插头和连接器的接触焊盘，电气（铜缆），电源，ESD和热特性。
+本文档为系统制造商，系统集成商和供应商提供了一个通用规范。 这是SFF委员会的内部工作文件，是一个行业特设小组。
+本规范旨在通过增加对更高传输速率和更高功率等级的支持来替代和扩展INF-8438 QSFP (Quad SFP) 4 Gb/s 4X Transceiver和SFF-8436 QSFP+ 10 Gb/s 4X Pluggable Transceiver。
+本规范可供公众查阅，书面意见来自读者。 会员将收到的意见将纳入本规范的未来版本。
+Support: This specification is supported by the identified member companies of the SFF 
+Committee.  
+ 
+ 
+ 
+POINTS OF CONTACT: 
+ 
+ Tom Palkert                David Lewis                            I. Dal Allan 
+ Molex                      JDSU                                   Chairman SFF Committee 
+ 2222 Wellington Court      430 North McCarthy Blvd                14426 Black Walnut Ct 
+ Lisle, IL 60532            Milpitas, CA 95035                     Saratoga  CA 95070 
+ 
+ Ph: 952-200-8542           Ph: 408-546-5448                       Ph: 408-867-6630 
+ tpalkert at molex dot com  David dot lewis at jdsu dot com        endlcom at acm dot org 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 1   Published                                                              SFF-8679 Rev 1.7  
+ 
+                             EXPRESSION OF SUPPORT BY MANUFACTURERS 
+ 
+The following member companies of the SFF Committee voted in favor of this industry 
+specification. 
+ 
+               Avago 
+               EMC 
+               Finisar 
+               Foxconn 
+               HGST 
+               MGE 
+               Molex 
+               NetApp 
+               Oclaro 
+               Panduit 
+               TE Connectivity 
+               Volex 
+ 
+ 
+The following member companies of the SFF Committee voted against this industry 
+specification. 
+ 
+               Hewlett Packard 
+ 
+ 
+The following member companies of the SFF Committee voted to abstain on this industry 
+specification. 
+ 
+               Amphenol 
+               Dell Computer 
+               IBM 
+               LSI 
+               Luxshare-ICT 
+               Pioneer 
+               Sandisk 
+               Seagate 
+               Toshiba 
+ 
+Change History 
+ 
+Rev 1.5:   
+- Moved referenced SFF specs to 2.1 Industry Documents and expanded the list.  
+ 
+Rev 1.6:   
+- Updated Figure 1 to show retimers.    
+- Removed two-wire interface timing diagram which is now in SFF-8636.    
+- Complete rewrite of power supply section to add support for power classes 5 to 7.  
+- Added section 8 "Timing Requirements".  
+ 
+Rev 1.7 
+- Editorial only, no technical changes.
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 2   Published                                                              SFF-8679 Rev 1.7  
+ 
+Foreword  
+ 
+The development work on this specification was done by the SFF Committee, an industry 
+group. The membership of the committee since its formation in August 1990 has included a 
+mix of companies which are leaders across the industry.  
+ 
+When 2 1/2" diameter disk drives were introduced, there was no commonality on external 
+dimensions e.g. physical size, mounting locations, connector type, and connector 
+location, between vendors.  
+ 
+The first use of these disk drives was in specific applications such as laptop portable 
+computers and system integrators worked individually with vendors to develop the 
+packaging. The result was wide diversity, and incompatibility. 
+ 
+The problems faced by integrators, device suppliers, and component suppliers led to the 
+formation of the SFF Committee as an industry ad hoc group to address the marketing and 
+engineering considerations of the emerging new technology.  
+ 
+During the development of the form factor definitions, other activities were suggested 
+because participants in the SFF Committee faced more problems than the physical form 
+factors of disk drives. In November 1992, the charter was expanded to address any issues 
+of general interest and concern to the storage industry. The SFF Committee became a forum 
+for resolving industry issues that are either not addressed by the standards process or 
+need an immediate solution.  
+ 
+    Those companies which have agreed to support a specification are identified in the 
+    first pages of each SFF Specification. Industry consensus is not an essential 
+    requirement to publish an SFF Specification because it is recognized that in an 
+    emerging product area, there is room for more than one approach. By making the 
+    documentation on competing proposals available, an integrator can examine the 
+    alternatives available and select the product that is felt to be most suitable.  
+ 
+SFF Committee meetings are held during T10 weeks (see www.t10.org), and Specific Subject 
+Working Groups are held at the convenience of the participants. Material presented at SFF 
+Committee meetings becomes public domain, and there are no restrictions on the open 
+mailing of material presented at committee meetings.  
+ 
+Most of the specifications developed by the SFF Committee have either been incorporated 
+into standards or adopted as standards by EIA (Electronic Industries Association), ANSI 
+(American National Standards Institute) and IEC (International Electro technical 
+Commission). 
+ 
+If you are interested in participating or wish to follow the activities of the SFF 
+Committee, the signup for membership and/or documentation can be found at: 
+              www.sffcommittee.com/ie/join.html 
+ 
+The complete list of SFF Specifications which have been completed or are currently being 
+worked on by the SFF Committee can be found at: 
+              ftp://ftp.seagate.com/sff/SFF-8000.TXT 
+ 
+If you wish to know more about the SFF Committee, the principles which guide the 
+activities can be found at: 
+             ftp://ftp.seagate.com/sff/SFF-8032.TXT 
+ 
+Suggestions for improvement of this specification will be welcome. They should be sent to 
+the SFF Committee, 14426 Black Walnut Ct, Saratoga, CA 95070. 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 3   Published                                                              SFF-8679 Rev 1.7  
+ 
+                                         TABLE OF CONTENTS 
+
+1   Scope                                                                                   6 
+2   References                                                                              6 
+    2.1    Industry Documents                                                               6 
+    2.2    SFF Specifications                                                               6 
+    2.3    Sources                                                                          7 
+    2.4    Conventions                                                                      7 
+    2.5    Acronyms                                                                         7 
+3   General Description                                                                     9 
+4   Compliance Testing                                                                     10 
+5   Electrical Specification                                                               11 
+    5.1    Electrical Connector                                                            11 
+    5.2    Low Speed Pin Descriptions                                                      16 
+      5.2.1    ModSelL                                                                     16 
+      5.2.2    ResetL                                                                      16 
+      5.2.3    LPMode                                                                      16 
+      5.2.4    ModPrsL                                                                     16 
+      5.2.5    IntL                                                                        16 
+    5.3    Low Speed Pin Electrical Specifications                                         17 
+      5.3.1    Low Speed Signaling                                                         17 
+      5.3.2    Low Speed Pin Timing                                                        17 
+    5.4    High Speed Pin Electrical Specifications                                        17 
+      5.4.1    Rx(n)(p/n)                                                                  17 
+      5.4.2    Tx(n)(p/n)                                                                  18 
+    5.5    Power Supply Pins                                                               18 
+      5.5.1    Power Classes and Maximum Power Consumption                                 18 
+      5.5.2    Module Power Supply Specification                                           20 
+      5.5.3    Host Board Power Supply Noise Output                                        24 
+      5.5.4    Module Power Supply Noise Output                                            24 
+      5.5.5    Module Power Supply Noise Tolerance                                         24 
+    5.6    ESD                                                                             24 
+6   Mechanical and Board Definition                                                        24 
+    6.1    Introduction                                                                    24 
+    6.2    Color Coding and Labeling of Modules                                            25 
+    6.3    Optical Interface                                                               26 
+      6.3.1    MPO Optical Cable Connection                                                26 
+      6.3.2    Dual LC Optical Cable Connection                                            27 
+7   Environmental and Thermal                                                              28 
+    7.1    Thermal Requirements                                                            28 
+8   Timing Requirements                                                                    28 
+    8.1    Soft Control and Status Timing Requirements                                     29 
+    8.2    Squelch and TxRx Disable Assert, Deassert and Enable/Disable Timing             30 
+ 
+                                              FIGURES 
+Figure 3-1 Application Reference Model                                                     10 
+Figure 4-1 Reference Points and Compliance Boards                                          11 
+Figure 5-1 Module Pad Layout                                                               12 
+Figure 5-2 Example: Host Board Schematic for Optical Modules                               14 
+Figure 5-3 Example: Host Board Schematic for Passive Copper Cables                         15 
+Figure 5-4 Example: Schematic of multiple qsfp28 power supply arrangement                  20 
+Figure 5-5 QSFP28 Inrush Current Timing                                                    22 
+Figure 6-1 Pluggable and Direct Attach Module Rendering                                    25 
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 4   Published                                                              SFF-8679 Rev 1.7  
+ 
+Figure 6-2 Optical Receptacle and Channel Orientation for MPO connector                    26 
+Figure 6-3 Optical Receptacle and Channel Orientation for Dual LC Connector                26 
+Figure 6-4 MPO Optical Patch Cord                                                          27 
+Figure 6-5 Dual LC Optical Patch Cord                                                      27 
+Figure 8-1 block diagram of module control signals                                         28 
+ 
+                                               TABLES 
+Table 4-1 Reference Points                                                                 11 
+Table 5-1 Pin Function Definition                                                          13 
+Table 5-2 Low Speed Pin Electrical Specifications                                          17 
+Table 5-3 QSFP28 - Maximum Power Classes                                                   18 
+Table 5-4 Power Mode Control Bits (See SFF-8636)                                           21 
+Table 5-5 Power Mode Truth Table                                                           21 
+Table 5-6 QSFP28 Module Power Supply Specification                                         23 
+Table 7-1 Temperature Range Class of Operation                                             28 
+Table 8-1 Soft Control and status timing requirements                                      29 
+Table 8-2 QSFP28 Squelch and TxRx Disable timing                                           30 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 5   Published                                                              SFF-8679 Rev 1.7  
+ 
+   SFF Committee -- 
+  
+         QSFP+ 4X Base Electrical Specification 
+
+1  Scope 
+This document specifies the electrical requirements for the QSFP10/14/28 pluggable 4-lane 
+interfaces, hereafter referred to as QSFP28. The scope includes: electrical contacts for 
+the host connector; fiber positions for optical interfaces; power supply requirements; 
+ESD and thermal characteristics of pluggable QSFP28 modules and direct attach cables. The 
+mechanical requirements are specified by reference. 
+1范围
+本文件规定了QSFP10 / 14/28可插拔4通道接口（以下简称QSFP28）的电气要求。 范围包括：主机连接器的电气触点; 光纤接口的光纤位置; 电源要求;
+可插拔QSFP28模块和直接连接电缆的ESD和热特性。 机械要求通过参考确定。 
+This specification supersedes and extends the applications supported by INF-8438 QSFP 
+(Quad SFP) 4 Gb/s 4X Transceiver and SFF-8436 QSFP28 10 Gb/s 4X Pluggable Transceiver by 
+supporting higher transfer rates.  
+本规范通过支持更高的传输速率来取代并扩展INF-8438 QSFP (Quad SFP) 4 Gb/s 4X Transceiver和SFF-8436 QSFP+ 10 Gb/s 4X Pluggable Transceiver支持的应用。
+2  References 
+2.1  Industry Documents  
+The following interface standards and specifications are relevant to this Specification. 
+  2参考文献
+2.1行业文件
+以下接口标准和规格与本规范相关。
+ - GR-253-CORE 
+ - ESD specifications EN61000-4-2, JEDEC JESD22-A114-B 
+ - Optical Connectors: MPO:IEC 61754-7, Dual LC: IEC 61754-20 
+ - Aligned key (Type B) MPO patch cords: TIA-568 
+ - Dual LC optical patch cord: TIA/EIA-604-10A 
+ - Thermal specifications: NEBS GR-63  
+ - IEEE Std 802.3-2012, 802.3bj and 802.3bm  
+ - InfiniBand Architecture Specifications FDR and EDR 
+ - INCITS 479-2011         FC-PI-5 (Fibre Channel Physical Interface -5) 
+ - INCITS 512-2014         FC-PI-6 (Fibre Channel Physical Interface -6) 
+ - T10 2212-D              SAS-3  
+ - T11-533-201x            FC-PI-6P (Fibre Channel Physical Interface -6  
+                                  128GFC Four Lane Parallel) 
+ - SFF-8635                QSFP+ 10 Gb/s 4X Pluggable Transceiver Solution (QSFP10) 
+ - SFF-8665                QSFP+ 28 Gb/s 4X Pluggable Transceiver Solution (QSFP28) 
+ - SFF-8685                QSFP+ 14 Gb/s 4X Pluggable Transceiver Solution (QSFP14) 
+2.2  SFF Specifications  
+There are several projects active within the SFF Committee. The complete list of 
+specifications which have been completed or are still being worked on are listed in the 
+specification at ftp://ftp.seagate.com/sff/SFF-8000.TXT. The specifications relevant to 
+the various QSFP generations are listed below. 
+ 2.2 SFF规格
+SFF委员会内有若干项目活跃。 完整或仍在处理的规格的完整列表在规范中列在ftp://ftp.seagate.com/sff/SFF-8000.TXT。 与各种QSFP代相关的规格如下。
+       INF-8438     QSFP (Quad Small Formfactor Pluggable) Transceiver 
+       SFF-8024     SFF Committee Cross Reference to Industry Products 
+       SFF-8436     QSFP+ 10 Gb/s 4X Pluggable Transceiver - Standardized as EIA-964 
+       SFF-8635     QSFP+ 10 Gb/s 4X Pluggable Transceiver Solution (QSFP10)  
+       SFF-8636 Common Management Interface 
+       SFF-8661     QSFP+ 28 Gb/s 4X Pluggable Module 
+       SFF-8662     QSFP+ 28 Gb/s 4X Connector (Style A) 
+       SFF-8663     QSFP+ 28 Gb/s Cage (Style A) 
+       SFF-8665     QSFP+ 28 Gb/s 4X Pluggable Transceiver Solution (QSFP28) 
+       SFF-8672     QSFP+ 28 Gb/s 4X Connector (Style B) 
+       SFF-8679     QSFP+ 4X Base Electrical Specification 
+       SFF-8682     QSFP+ 14 Gb/s 4X Connector (Style B) 
+       SFF-8683     QSFP28 14 Gb/s Cage 
+ 
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 6   Published                                                              SFF-8679 Rev 1.7  
+ 
+2.3  Sources  
+Those who join the SFF Committee as an Observer or Member receive electronic copies of 
+the minutes and SFF specifications (http://www.sffcommittee.com/ie/join.html). 
+ 
+Copies of ANSI standards may be purchased from the InterNational Committee for 
+Information Technology Standards (http://www.techstreet.com/incitsgate.tmpl). 
+ 2.3来源
+参加SFF委员会作为观察员或会员的人将收到会议记录和SFF规范的电子副本（http://www.sffcommittee.com/ie/join.html）。
+ 
+ANSI标准的副本可以从国际信息技术标准委员会（http://www.techstreet.com/incitsgate.tmpl）购买。
+2.4  Conventions 
+The ISO convention of numbering is used i.e., the thousands and higher multiples are 
+separated by a space and a period is used as the decimal point. This is equivalent to the 
+English/American convention of a comma and a period. 
+ 2.4公约
+使用ISO编号惯例，即，数千和更高的倍数被空格隔开，并且周期被用作小数点。 这相当于英美美国公约和逗号。
+                           American French                         ISO 
+                                 0.6              0,6               0.6 
+                             1,000            1 000             1 000 
+                         1,323,462.9      1 323 462,9       1 323 462.9 
+ 
+2.5  Acronyms 
+The following acronyms are used in this specification. 
+ 2.5缩略语
+在本说明书中使用以下首字母缩略词。
+ANSI      American National Standards Institute 
+ASIC      Application Specific Integrated Circuit 
+ATM       Asynchronous Transfer Mode 
+CML       Current Mode Logic 
+CORE      Central Office Relay Equipment 
+DC        Direct Current 
+DDR       Double Data Rate 
+EDR       Enhanced Data Rate 
+EIA       Electronic Industries Alliance 
+EMI       Electro Magnetic Interference 
+ESD       Electro Static Discharge 
+FC        Fibre Channel 
+FDR       Fourteen Data Rate 
+Gb/s      Gigabits per second 
+GbE       Gigabit Ethernet 
+GFC       Gigabit Fibre Channel 
+HCB       Host Compliance Board 
+IEC       International Electrotechnical Commission 
+IEEE      Institute for Electrical and Electronics Engineers 
+ISO       Organization for International Standards 
+ITU       International Telecommunications Union 
+JEDEC     Joint Electron Device Engineering Council 
+kHz       kiloHertz 
+km        kilometer 
+LVCMOS    Low Voltage Complementary Metal Oxide Semiconductor 
+LVTTL     Low Voltage Transistor Transistor Logic 
+MCB       Module Compliance Board 
+MHz       MegaHertz 
+MIB       Management Information Base 
+MPO       Multi-fiber Push On 
+MSA       Multiple Source Agreement 
+NAS       Network-Attached Storage 
+NAT       Network Address Translation 
+NEBS      Network Equipment Building System 
+OC        Optical Carrier 
+OEM       Original Equipment Manufacturer 
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 7   Published                                                              SFF-8679 Rev 1.7  
+ 
+OMA       Open Mobile Alliance 
+PCB       Printed Circuit Board 
+PDH       Plesiochronous Digital Hierarchy 
+PI        Physical Interface 
+PON       Passive Optical Network 
+QDR       Quad Data Rate 
+QSFP      Quad SFP 
+Rx        Receiver 
+SAS       Serial Attached SCSI 
+SDH       Synchronous Digital Hierarchy 
+SDR       Software Defined Receiver 
+SerDes    Serializer-Deserializer 
+SFP       Small Formfactor Pluggable 
+SM        Single Mode 
+SNMP      Simple Network Management Protocol 
+SONET     Synchronous Optical NETwork 
+STM       Synchronous Transfer Mode 
+TIA       Telecommunications Industry Association 
+TTL       Transistor-Transistor Logic 
+Tx        Transmitter  
+XFP       10 Gigabit Small Formfactor Pluggable 
+ 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 8   Published                                                              SFF-8679 Rev 1.7  
+ 
+
+3  General Description 
+This specification covers the following items: 
+ 
+   a)  Electrical specification. including connector contact assignments for data control, 
+       status, configuration and test signals) and the electrical connector and 
+       recommended host PCB layout requirements. 
+   b)  Mechanical and board definition.  
+   c)  Environmental and thermal. requirements (case temperatures). Electromagnetic 
+       interference (EMI) recommendations (including necessary shielding features to seal 
+       the OEM chassis front panel output with and without the module installed in the 
+       cage). Electrostatic discharge (ESD) requirements solely to the extent disclosed in 
+       the specification where the sole purpose of such disclosure is to enable products 
+       to operate, connect or communicate as defined within the specifications. 
+   d)  Timing requirements. 
+ 3一般说明本规范涵盖以下项目： 
+ a）电气规格。 （包括用于数据控制，状态，配置和测试信号的连接器触点分配）以及电连接器和推荐的主机PCB布局要求。 
+ b）机械和电路板定义。 
+ c）环境和热要求（箱体温度）。 带和不带模块安装在笼子时的电磁干扰（EMI）建议（包括必要的屏蔽功能，以从密封OEM机箱前面板输出，）。 静电放电（ESD）要求仅在本说明书所公开的范围内，其中这种公开的唯一目的是使产品能够在规格内定义进行操作，连接或通信。 d）时间要求
+The overall package dimension shall conform to the required dimensions and tolerances.  
+ 
+ -  The mounting features shall be located such that the products are mechanically 
+    interchangeable with the cage and connector system. 
+     
+ -  The overall dimensions and mounting requirements for the cage and connector system 
+    on a circuit board shall be configured such that the products are mechanically and 
+    electrically interchangeable. 
+     
+ -  The overall dimensions and insertion requirements for the optical connector and 
+    corresponding fiber optic cable plug shall be such that the products are 
+    mechanically and optically interchangeable. 
+ 整体包装尺寸应符合所需的尺寸和公差。 
+ - 安装特征应定位，使产品与笼和连接器系统机械可互换。 
+ - 电路板上的笼和连接器系统的总体尺寸和安装要求应配置为使产品机械和电气可互换。 
+ - 光学连接器和相应的光纤电缆插头的总体尺寸和插入要求应使产品在机械和光学上可互换。
+These electrical and optical specifications may be compatible with those enumerated in 
+the following: 
+ 这些电气和光学规格可能与以下列举的那些兼容：
+    ITU-T Recommendation G.957                    STM-1, STM-4, STM-16 
+    Telcordia Technologies GR-253-CORE            OC-3, OC-12, OC-48, OC-192 
+    Ethernet IEEE 802.3                           10 GbE, 40 GbE, 100 GbE 
+    Infiniband Architecture Specifications        SDR, DDR, QDR, FDR, EDR 
+    SFF Committee                                 SFF-8436 QSFP+ 
+    Fibre Channel                                 FC-PI-3/4/5/6, 2G, 4G, 8G, 10G, 16G, 32G 
+ 
+The specifications will provide a common solution for combined four-channel ports that 
+support SONET/SDH and/or Ethernet and/or Infiniband and/or Fibre Channel and/or SAS 
+specifications. This specification encompasses design(s) capable of supporting multimode 
+and single mode modules, passive copper, active copper and active optical cables. 
+ 
+An Application Reference Model, See Figure 3-1, shows the high-speed data interface 
+between an ASIC (SerDes) and the module. Only one data channel of the interface is shown 
+for simplicity. Either parallel MPO or duplex LC fiber connectors can be used for the 
+optical interface. 
+
+规格将为支持SONET / SDH和/或以太网和/或Infiniband和/或光纤通道和/或SAS规格的组合四通道端口提供通用解决方案。 该规范涵盖能够支持多模和单模模块，无源铜，有源铜缆和有源光缆的设计。
+ 
+应用参考模型，参见图3-1，显示了ASIC（SerDes）和模块之间的高速数据接口。 为简单起见，仅显示了接口的一个数据通道。 可以使用并行MPO或双工LC光纤连接器
+光接口。
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 9   Published                                                              SFF-8679 Rev 1.7  
+ 
+ 
+                                          HOST BOARD
+                               (Only one channel shown for simplicity)
+
+
+                                               RX_OUT_P
+                                                           DRVR          RX         RX
+                                               RX_OUT_N                Retimer
+
+             HOST                                                                                  Interface)  (Optical
+                                                                QSFP28 MODULE
+              ASIC
+
+                                               TX_IN_P
+                                                                          TX
+                                                              CTLE
+
+
+                                       Host  Card Edge Connector                     TX
+                                               TX_IN_N                 Retimer
+                                            Module  Card Edge (Host  Interface)
+                                                                                                  Optical Connector Port  Connector Optical
+
+
+                                                                                                     
+                             FIGURE 3-1 APPLICATION REFERENCE MODEL 
+
+4  Compliance Testing 
+The module electrical interface test points are intended to be measured using compliance 
+boards as shown in Figure 4-1. These compliance boards are intended to connect the module 
+under test to test equipment for verification of compliance to the appropriate standard. 
+The Module Compliance Board is used to test the module. The electrical parameters of the 
+compliance boards should be specified by the appropriate standard. The Module Compliance 
+Board and Host Compliance Board can be plugged together for calibration of compliance 
+signals and to check the electrical parameters of the compliance boards. 
+ 4合规测试
+模块电气接口测试点旨在使用合规板进行测量，如图4-1所示。 这些合规板旨在将待测模块连接到测试设备，以验证是否符合相应的标准。
+模块合规板用于测试模块。 合规板的电气参数应由适当的标准规定。 模块合规板和主机合规板可以插在一起用于校准符合性信号，并检查合规板的电气参数。
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 10   Published                                                              SFF-8679 Rev 1.7  
+ 
+
+
+                                                                                            
+                                                   
+                       FIGURE 4-1 REFERENCE POINTS AND COMPLIANCE BOARDS 
+ 
+The reference points are defined in Table 4-1. 
+ 
+                                    TABLE 4-1 REFERENCE POINTS 
+    TP0     Host ASIC transmitter output at ASIC package pin on a DUT board 
+     TP1    Input to module compliance board through mated module compliance board and 
+            module connector. Used to test module input 
+     TP1A   Host ASIC transmitter output across the Host Board and Host Edge Card 
+            connector at the output of the host compliance board 
+     TP4    Module output through mated module and host edge card connector through module 
+            compliance board 
+     TP4A   Input to host compliance board through mated host compliance board and host 
+            edge card connector. Used to test host input 
+     TP5    Input to host ASIC 
+     Note:  Individual standards may specify unique reference points 
+ 参考点在表4-1中定义。
+ 
+                                     表4-1参考点
+     TP0在DUT板上的ASIC封装引脚上的主机ASIC发送器输出
+      TP1通过配对模块兼容板和模块连接器输入到模块兼容板。 用于测试模块输入
+      TP1A主机ASIC发送器通过主机板和主机边缘卡连接器在主机兼容板的输出端输出
+      TP4模块输出通过配对模块和主机边缘卡连接器通过模块合规板
+      TP4A通过配对主机兼容板和主机边缘卡连接器输入主机兼容板。 用于测试主机输入
+      TP5输入到主机ASIC
+      注意：个别标准可以指定唯一的参考点
+
+5  Electrical Specification 
+This clause contains pin definition data for the module. The pin definition data is 
+generic for gigabit-per-second datacom applications such as Fibre Channel, Ethernet and 
+SONET/ATM applications. Compliance Points for high-speed signal electrical measurements 
+are defined in Figure 4-1. Compliance Points for all other electrical signals are at 
+comparable points at the host edge card connector. 
+5.1  Electrical Connector 
+Figure 5-1 shows the signal symbols and contact numbering for the module edge connector. 
+The diagram shows the module PCB edge as a top and bottom view. There are 38 contacts 
+intended for high speed signals, low speed signals, power and ground connections. Table 
+5-1 provides more information about each of the 38 contacts. 
+ 电气规格
+本节包含模块的引脚定义数据。 引脚定义数据对于千兆位/秒数据通信应用如光纤通道，以太网和SONET / ATM应用是通用的。 图4-1中定义了高速信号电测量的符合点。 所有其他电气信号的符合点在主机边缘卡连接器处于相似点。
+5.1电气连接器
+图5-1显示了模块边缘连接器的信号符号和接点编号。 该图显示了模块PCB边缘作为顶视图和底视图。 有38个触点用于高速信号，低速信号，电源和接地连接。 表5-1提供了有关38个连接中的每一个的更多信息。
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 11   Published                                                              SFF-8679 Rev 1.7  
+ 
+The module contains a printed circuit board that mates with the electrical connector. The 
+pads are designed for a sequenced mating: 
+ 
+       First mate  - ground contacts 
+       Second mate - power contacts 
+       Third mate  - signal contacts 
+ 
+For EMI protection the signals to the connector should be shut off when the module is 
+removed. Standard board layout practices such as connections to Vcc and GND with Vias, 
+use of short and equal-length differential signal lines, use of microstrip-lines and 50 
+Ohm terminations are recommended. The chassis ground (case common) of the module should 
+be isolated from the module's circuit ground, GND, to provide the equipment designer 
+flexibility regarding connections between external electromagnetic interference shields 
+and circuit ground, GND, of the module. 
+ 
+
+该模块包含与电连接器相配合的印刷电路板。 pad设计用于顺序接触：
+ 
+        第一接触 - 地接触
+        第二接触 - 电源解除
+        第三接触 - 信号接触
+ 
+对于EMI保护，当模块拆卸时，应关闭连接器的信号。 建议使用标准电路板布局实践，例如使用Vias连接到Vcc和GND，使用短距离和等长差分信号线，使用微带线和50欧姆终端。 模块的机箱接地（外壳通用）应与模块的电路接地GND隔离，为设备设计人员提供模块外部电磁干扰屏蔽和电路接地GND之间连接的灵活性。
+                                                                                                
+                                   FIGURE 5-1 MODULE PAD LAYOUT 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 12   Published                                                              SFF-8679 Rev 1.7  
+ 
+                                TABLE 5-1 PIN FUNCTION DEFINITION 
+        Pin Logic           Symbol               Description                 Plug Notes 
+                                                                           Sequence 
+         1                 GND        Ground                                   1         1 
+         2    CML-I        Tx2n       Transmitter Inverted Data Input          3  
+         3 CML-I           Tx2p       Transmitter Non-Inverted Data            3  
+                                      Input 
+         4                 GND        Ground                                   1         1 
+         5    CML-I        Tx4n       Transmitter Inverted Data Input          3  
+         6 CML-I           Tx4p       Transmitter Non-Inverted Data            3  
+                                      Input 
+         7                 GND        Ground                                   1         1 
+         8 LVTTL-I         ModSelL Module Select                               3  
+         9 LVTTL-I         ResetL Module Reset                                 3  
+        10                 Vcc Rx     +3.3V Power Supply Receiver              2         2 
+        11    LVCMOS-I/O  SCL         2-wire serial interface clock            3  
+        12    LVCMOS-I/O  SDA         2-wire serial interface data             3  
+        13                 GND        Ground                                   1         1 
+        14    CML-O        Rx3p       Receiver Non-Inverted Data               3  
+                                      Output 
+        15    CML-O        Rx3n       Receiver Inverted Data Output            3  
+        16                 GND        Ground                                   1         1 
+        17    CML-O        Rx1p       Receiver Non-Inverted Data               3  
+                                      Output 
+        18    CML-O        Rx1n       Receiver Inverted Data Output            3  
+        19                 GND        Ground                                   1         1 
+        20                 GND        Ground                                   1         1 
+        21    CML-O        Rx2n       Receiver Inverted Data Output            3  
+        22    CML-O        Rx2p       Receiver Non-Inverted Data               3  
+                                      Output 
+        23                 GND        Ground                                   1         1 
+        24    CML-O        Rx4n       Receiver Inverted Data Output            3  
+        25    CML-O        Rx4p       Receiver Non-Inverted Data               3  
+                                      Output 
+        26                 GND        Ground                                   1         1 
+        27 LVTTL-O         ModPrsL Module Present                              3  
+        28 LVTTL-O         IntL       Interrupt                                3  
+        29                 Vcc Tx     +3.3V Power supply transmitter           2         2 
+        30                 Vcc1       +3.3V Power supply                       2         2 
+        31    LVTTL-I      LPMode     Low Power Mode                           3  
+        32                 GND        Ground                                   1         1 
+        33 CML-I           Tx3p       Transmitter Non-Inverted Data            3  
+                                      Input 
+        34    CML-I        Tx3n       Transmitter Inverted Data Input          3  
+        35                 GND        Ground                                   1         1 
+        36 CML-I           Tx1p       Transmitter Non-Inverted Data            3  
+                                      Input 
+        37    CML-I        Tx1n       Transmitter Inverted Data Input          3  
+        38                 GND        Ground                                   1         1 
+       Note 1: GND is the symbol for signal and supply (power) common for the 
+       module. All are common within the module and all module voltages are 
+       referenced to this potential unless otherwise noted. Connect these directly 
+       to the host board signal-common ground plane. 
+       Note 2: Vcc Rx, Vcc1 and Vcc Tx shall be applied concurrently. Requirements 
+       defined for the host side of the Host Edge Card Connector are listed in Table 
+       5-6. Vcc Rx Vcc1 and Vcc Tx may be internally connected within the module in 
+       any combination. The connector pins are each rated for a maximum current of 
+       1000 mA. 
+ 注1：GND是模块通用的信号和电源（电源）符号。 除非另有说明，否则所有模块电压都参考此模块电压。 将它们直接连接到主机板信号公共接地层。
+        注2：同时应用Vcc Rx，Vcc1和Vcc Tx。 要求为主机边缘卡连接器的主机端定义的要求列在表5-6中。 Vcc Rx Vcc1和Vcc Tx可以以任何组合内部连接在模块内。 连接器引脚的额定最大电流为1000 mA。
+
+
+                                                                                                     
+                 FIGURE 5-2 EXAMPLE: HOST BOARD SCHEMATIC FOR OPTICAL MODULES 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 14   Published                                                              SFF-8679 Rev 1.7  
+ 
+
+
+                                                                                                    
+ 
+             FIGURE 5-3 EXAMPLE: HOST BOARD SCHEMATIC FOR PASSIVE COPPER CABLES 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 15   Published                                                              SFF-8679 Rev 1.7  
+ 
+5.2  Low Speed Pin Descriptions 
+In addition to the 2-wire serial interface the module has the following low speed pins 
+for control and status: 
+ 
+       ModSelL 
+       ResetL 
+       LPMode 
+       ModPrsL 
+       IntL 
+5.2.1  ModSelL 
+The ModSelL is an input pin. When held low by the host, the module responds to 2-wire 
+serial communication commands. The ModSelL allows the use of multiple modules on a single 
+2-wire interface bus. When the ModSelL is "High", the module shall not respond to or 
+acknowledge any 2-wire interface communication from the host. ModSelL signal input node 
+shall be biased to the "High" state in the module. 
+ 
+In order to avoid conflicts, the host system shall not attempt 2-wire interface 
+communications within the ModSelL de-assert time after any modules are deselected. 
+Similarly, the host shall wait at least for the period of the ModSelL assert time before 
+communicating with the newly selected module. The assertion and de-asserting periods of 
+different modules may overlap as long as the above timing requirements are met. 
+5.2.2  ResetL 
+The ResetL pin shall be pulled to Vcc in the module. A low level on the ResetL pin for 
+longer than the minimum pulse length (t_Reset_init) initiates a complete module reset, 
+returning all user module settings to their default state. Module Reset Assert Time 
+(t_init) starts on the rising edge after the low level on the ResetL pin is released. 
+During the execution of a reset (t_init) the host shall disregard all status bits until 
+the module indicates a completion of the reset interrupt. The module indicates this by 
+asserting "low" an IntL signal with the Data_Not_Ready bit negated. Note that on power up 
+(including hot insertion) the module should post this completion of reset interrupt 
+without requiring a reset. 
+5.2.3  LPMode 
+The LPMode pin shall be pulled up to Vcc in the module. The pin is a hardware control 
+used to put modules into a low power mode when high. By using the LPMode pin and a 
+combination of the Power_override, Power_set and High_Power_Class_Enable software control 
+bits (Address A0h, byte 93 bits 0,1,2), the host controls how much power a module can 
+dissipate. 
+ 
+See section 5.5 for more details on the power supply specifications.  
+ 
+5.2.4  ModPrsL 
+ModPrsL is pulled up to Vcc_Host on the host board and grounded in the module. The 
+ModPrsL is asserted "Low" when inserted and deasserted "High" when the module is 
+physically absent from the host connector. 
+ 
+5.2.5  IntL 
+IntL is an output pin. When IntL is "Low", it indicates a possible module operational 
+fault or a status critical to the host system. The host identifies the source of the 
+interrupt using the 2-wire serial interface. The IntL pin is an open collector output and 
+shall be pulled to host supply voltage on the host board. The INTL pin is deasserted 
+"High" after completion of reset, when byte 2 bit 0 (Data Not Ready) is read with a value 
+of '0' and the flag field is read (see SFF-8636). 
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 16   Published                                                              SFF-8679 Rev 1.7  
+ 
+5.3  Low Speed Pin Electrical Specifications 
+5.3.1  Low Speed Signaling 
+Low speed signaling other than SCL and SDA is based on Low Voltage TTL (LVTTL) operating 
+at Vcc. Vcc refers to the generic supply voltages of VccTx, VccRx, Vcc_host or Vcc1. 
+Hosts shall use a pull-up resistor connected to Vcc_host on each of the 2-wire interface 
+SCL (clock), SDA (data), and all low speed status outputs.  
+ 
+The SCL and SDA is a hot plug interface that may support a bus topology. During module 
+insertion or removal, the module may implement a pre-charge circuit which prevents 
+corrupting data transfers from other modules that are already using the bus.  
+ 
+Compliance with Table 5-3 provides compatibility between host bus masters and the 2-wire 
+interface. 
+ 
+                       TABLE 5-2 LOW SPEED PIN ELECTRICAL SPECIFICATIONS 
+       Parameter Symbol Min Max Unit                                     Condition 
+       SCL and SDA                VOL 0                  0.4 V IOL(max)=3.0mA 
+                                  VOH Vcc-0.5 Vcc+0.3               V  
+       SCL and SDA                VIL -0.3 Vcc*0.3 V  
+                                  VIH      Vcc*0.7   Vcc + 0.5      V  
+       Capacitance for SCL         Ci                    14 pF  
+       and SDA I/O pin 
+       Total bus                   Cb                    100        pF   3.0 k Ohms pullup 
+       capacitive load for                                               resistor, max 
+       SCL and SDA                                       200        pF   1.6 k Ohms pullup 
+                                                                         resistor max 
+       LPMode, Reset and          VIL -0.3               0.8        V |Iin|<=125 uA for 
+       ModSelL                                                           0V<Vin,Vcc 
+                                  VIH 2 Vcc+0.3 V  
+       ModPrsL and IntL           VOL 0                  0.4 V IOL=2.0mA 
+                                  VOH Vcc-0.5 Vcc+0.3               V  
+ 
+5.3.2  Low Speed Pin Timing    
+Timing for SCL, SDA and ModSelL is defined in the common management interface document 
+SFF-8636. Timing of the hardware control functions is specified in section 8. 
+ 
+5.4  High Speed Pin Electrical Specifications 
+5.4.1  Rx(n)(p/n) 
+Rx(n)(p/n) are module receiver data outputs. Rx(n)(p/n) are AC-coupled 100 Ohm 
+differential lines that should be terminated with 100 Ohm differentially at the Host 
+ASIC(SerDes). The AC coupling is inside the module and not required on the Host board. 
+For operation at 28 Gb/s the relevant standards (e.g., OIF CEI v3.1) define the signal 
+requirements on the high-speed differential lines. For operation at lower rates, refer to 
+the relevant standards.  
+ 
+Note: Due to the possibility of insertion of legacy QSFP and QSFP+ modules into a host 
+designed for higher speed operation, it is recommended that the damage threshold of the 
+host input be at least 1600 mV peak to peak differential. 
+ 
+Output squelch for loss of optical input signal, hereafter Rx Squelch, is required and 
+shall function as follows. In the event of the optical signal on any channel becoming 
+equal to or less than the level required to assert LOS, then the receiver data output for 
+that channel shall be squelched or disabled. In the squelched or disabled state output 
+impedance levels are maintained while the differential voltage swing shall be less than 
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 17   Published                                                              SFF-8679 Rev 1.7  
+ 
+50 mVpp. 
+ 
+In normal operation the default case has Rx Squelch active. Rx Squelch can be deactivated 
+using Rx Squelch Disable through the 2-wire serial interface. Rx Squelch Disable is an 
+optional function. For specific details refer to SFF-8636. 
+5.4.2  Tx(n)(p/n) 
+Tx(n)(p/n) are module transmitter data inputs. They are AC-coupled 100 Ohm differential 
+lines with 100 Ohm differential terminations inside the module. The AC coupling is inside 
+the module and not required on the Host board. For operation at 28 Gb/s the relevant 
+standards (e.g., OIF CEI v3.1) define the signal requirements on the high-speed 
+differential lines. For operation at lower rates, refer to the relevant standards.  
+Due to the possibility of insertion of modules into a host designed for lower speed 
+operation, the damage threshold of the module input shall be at least 1600 mV peak to 
+peak differential. 
+ 
+Output squelch, hereafter Tx Squelch, for loss of input signal, hereafter Tx LOS, is an 
+optional function. Where implemented it shall function as follows. In the event of the 
+differential, peak-to-peak electrical signal on any channel becomes less than 50 mVpp, 
+then the transmitter optical output for that channel shall be squelched or disabled and 
+the associated TxLOS flag set. 
+ 
+Where squelched, the transmitter OMA shall be less than or equal to -26 dBm and when 
+disabled the transmitter power shall be less than or equal to -30 dBm. For applications, 
+e.g. Ethernet, where the transmitter off condition is defined in terms of average power, 
+disabling the transmitter is recommended and for applications, e.g. InfiniBand, where the 
+transmitter off condition is defined in terms of OMA, squelching the transmitter is 
+recommended. 
+ 
+In module operation, where Tx Squelch is implemented, the default case has Tx Squelch 
+active. Tx Squelch can be deactivated using Tx Squelch Disable through the 2-wire serial 
+interface. Tx Squelch Disable is an optional function. For specific details refer to SFF-
+8636. 
+5.5  Power Supply Pins 
+The circuit card in a QSFP28 module has three designated power pins, labeled VccTx, VccRx 
+and Vcc1. When the QSFP28 module is "hot plugged" into a connector with power already 
+present, the three pins have power applied concurrently.  The module is responsible for 
+limiting the inrush current surge during a hot plug event. The host power supply is 
+responsible for supplying up to the maximum inrush current limits during a hot plug event 
+without causing disturbance to other modules and components on the same power supply. 
+ 
+5.5.1  Power Classes and Maximum Power Consumption 
+QSFP28 modules are categorized into several power classes as listed in Table 5-3. Power 
+Classes are advertised in upper page 00h of the management interface, byte 129 (81h). 
+ 
+                            TABLE 5-3 QSFP28 - MAXIMUM POWER CLASSES 
+                            Power Class          Maximum power dissipation 
+                                                       per module (W) 
+                                  1 1.5 
+                                  2 2.0 
+                                  3 2.5 
+                                  4 3.5 
+                                  5 4.0 
+                                  6 4.5 
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 18   Published                                                              SFF-8679 Rev 1.7  
+ 
+                                  7 5.0 
+ 
+The specification of the host power supply filtering network is beyond the scope of this 
+specification, particularly because of the wide range of QSFP28 module power classes. An 
+example current waveform into a host filter, labeled I1 in Figure 5-4, is plotted in 
+Figure 5-5. Each power connection has a supply filter for the purpose of filtering out 
+high frequency noise and ripple from host-to-module.  During a hot-plug event, the filter 
+network limits any voltage drop on the host supply so that neighboring modules sharing 
+the same supply stay within their specified supply voltage limits. 
+ 
+A host board together with the QSFP28 module(s) forms an integrated power system. The 
+host supplies stable power to the modules. Each module limits electrical noise coupled 
+back into the host system and limits inrush charge/current during hot plug insertion. All 
+specifications shall be met at the maximum power supply current. No power sequencing of 
+the power supply is required of the host system since the module sequences the contacts 
+in the order of ground, supply and signals during insertion. Any voltage drop across a 
+filter network on the host is counted against the host DC set point accuracy 
+specification.  
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 19   Published                                                              SFF-8679 Rev 1.7  
+ 
+
+
+                                                                                                   
+         FIGURE 5-4 EXAMPLE: SCHEMATIC OF MULTIPLE QSFP28 POWER SUPPLY ARRANGEMENT 
+ 
+5.5.2  Module Power Supply Specification 
+In order to avoid exceeding the host system power capacity, upon hot-plug, power cycle or 
+reset, all QSFP28 modules shall power up in power class 1, designated as "Low Power 
+Mode".  QSFP28 modules that are class 1 will be fully functional after initialization and 
+remain in low power mode during system operation. All other QSFP28 modules will only 
+reach fully functional operation after the host system enables "High Power Mode".  
+ 
+High power mode is defined as the maximum power class as advertised in page 00, byte 129 
+and will only be enabled by the host if the host can supply sufficient power to the 
+module. The host system controls whether a particular power class is enabled using the 
+LPMode input pin and by writing to 3 control bits in byte 93. The management interface 
+specification, SFF-8636 provides complete details but for explanation of power supply 
+control, the bits are listed in Table 5‐4.  
+ 
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 20   Published                                                              SFF-8679 Rev 1.7  
+ 
+                       TABLE 5-4 POWER MODE CONTROL BITS (SEE SFF-8636) 
+Addrs Bit                Name                                     Description 
+93 7-3 Reserved  
+ 2 High_Power_Class_Enable When set (=1b) enables power classes 5 to 7 if 
+             (Classes 5-7)                  listed in address 129d. When cleared (=0b), 
+                                            modules with power classes 5 to 7 shall dissipate 
+                                            less than 3.5W, but are not required to be fully 
+                                            functional. Default = 0. 
+        1    Power_set                      Power set to Low Power Mode (class 1). Default = 
+                                            0. 
+        0    Power_override                 Override of LPMode pin to allow power mode setting 
+                                            by software. 
+ 
+A truth table showing the allowed power classes is shown in Table 5-5. 
+ 
+                                TABLE 5-5 POWER MODE TRUTH TABLE 
+        High_Power_         LPMode pin      Power_override     Power_set       Module Power 
+     Class_Enable bit          state              bit              bit        Classes Allowed 
+              0 1 0 X 1 
+              0 0 0 X 2 to 4 
+              0 X 1 1 1 
+              0 X 1 0 2 to 4 
+              1 1 0 X 1 
+              1 0 0 X 2 to 7 
+              1 X 1 1 1 
+              1 X 1 0 2 to 7 
+ 
+QSFP28 modules operate from the host supplied voltage at the three power pins. To protect 
+the host and system operation, each QSFP28 module during hot plug and normal operation 
+shall follow the requirements listed in Table 5-5 and illustrated in Figure 5-5.  
+ 
+The test configuration for measuring the supply current is a module compliance board 
+(MCB) with reference power supply filters, similar to the circuit shown in SFF-8431, 
+Appendix D, and Figure 56. The QSFP28 MCB can have a single filter per module card or 
+separate filters for each power pin on each module card, depending on the power class and 
+module design. The current limits in Table 5-6 refer to the currents through each 
+inductor. 
+ 
+An example current waveform into a host filter, labeled I1 in Figure 5-4, is plotted in 
+Figure 5-5. This figure also shows the timing of the initial module turn-on in low power 
+mode, and the later transition to full power mode after the host system has enabled it 
+via the two-wire interface. 
+ 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 21   Published                                                              SFF-8679 Rev 1.7  
+ 
+                                              LOW POWER MODE                                             HIGH POWER MODE
+
+              I1 (mA)                                                                         Instantaneous peak 
+                                                                                                duration, max
+
+ Instantaneous peak, 
+              max
+
+ Sustained peak, max
+
+   Steady state, max
+
+
+                            Instantaneous peak 
+                               duration, max
+
+ Instantaneous peak, 
+              max
+
+ Sustained peak, max
+
+   Steady state, max
+
+
+                                                                                                                                               t (ms)
+
+                               Initialization time, max                                         Initialization time, max
+                                                                               High Power 
+                     Hot Plug
+                                                                                 Mode 
+                      Instant
+                                                                                Enabled                                                                
+                                           FIGURE 5-5 QSFP28 INRUSH CURRENT TIMING 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 22   Published                                                              SFF-8679 Rev 1.7  
+ 
+                      TABLE 5-6 QSFP28 MODULE POWER SUPPLY SPECIFICATION 
+                    Parameter Symbol Min Nom Max Unit 
+Host power supply voltages including ripple,        Vcc_Host    3.135 3.3          3.465        V 
+droop and noise below 100 kHz 
+Host RMS noise output 10 Hz-10 MHz                    e                              25        mV 
+                                                        N_Host
+Module RMS noise output 10 Hz - 10 MHz                 e                             15        mV 
+                                                        N_Mod
+Module power supply noise tolerance 10 Hz -          PSNR                            66        mV 
+                                                          _Mod
+10 MHz (peak-to-peak) 
+Module inrush - instantaneous peak duration           T_ip        -        -         50        μs 
+Module inrush - initialization time                  T_init       -        -         500        ms 
+                  Power Class 1 module and low power mode for other modules 
+Power consumption                                      P_1 - - 1.5 W 
+Instantaneous peak current at hot plug              Icc_ip_1      - - 600 mA 
+Sustained peak current at hot plug                  Icc_sp_1      - - 495 mA 
+Steady state current                                  Icc_1       -        -       432.9        mA 
+                                       Power Class 2 module 
+Power consumption                                      P_3 - - 2.0 W 
+Instantaneous peak current at hot plug              Icc_ip_3      - - 800 mA 
+Sustained peak current at hot plug                  Icc_sp_3      - - 660 mA 
+Steady state current                                  Icc_3       -        -       577.2        mA 
+                                       Power Class 3 module 
+Power consumption                                      P_4 - - 2.5 W 
+Instantaneous peak current at hot plug              Icc_ip_4      - - 1000 mA 
+Sustained peak current at hot plug                  Icc_sp_4      - - 825 mA 
+Steady state current                                  Icc_4       -        -       721.5        mA 
+                                       Power Class 4 module 
+Power consumption                                      P_5 - - 3.5 W 
+Instantaneous peak current at hot plug              Icc_ip_5      - - 1400 mA 
+Sustained peak current at hot plug                  Icc_sp_5      - - 1155 mA 
+Steady state current                                  Icc_5       -        -       1010.1       mA 
+                                       Power Class 5 module 
+Power consumption                                      P_6 - - 4.0 W 
+Instantaneous peak current at hot plug              Icc_ip_6      - - 1600 mA 
+Sustained peak current at hot plug                  Icc_sp_6      - - 1320 mA 
+Steady state current                                  Icc_6       -        -       1154.4       mA 
+                                       Power Class 6 module 
+Power consumption                                      P_7 - - 4.5 W 
+Instantaneous peak current at hot plug              Icc_ip_7      - - 1800 mA 
+Sustained peak current at hot plug                  Icc_sp_7      - - 1485 mA 
+Steady state current                                  Icc_7       -        -       1298.7       mA 
+                                       Power Class 7 module 
+Power consumption                                      P_8 - - 5.0 W 
+Instantaneous peak current at hot plug              Icc_ip_8      - - 2000 mA 
+Sustained peak current at hot plug                  Icc_sp_8      - - 1650 mA 
+Steady state current                                  Icc_8       -        -       1443.0       mA 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 23   Published                                                              SFF-8679 Rev 1.7  
+ 
+5.5.3  Host Board Power Supply Noise Output 
+The host shall generate an effective weighted integrated spectrum RMS noise less than the 
+value in Table 5-6 when tested by the methods of SFF-8431, section D.17.1. 
+5.5.4  Module Power Supply Noise Output 
+The QSFP28 module shall generate less than the value in Table 5-6 when tested by the 
+methods of SFF-8431, section D.17.2. 
+5.5.5  Module Power Supply Noise Tolerance 
+The QSFP28 module shall meet all requirements and remain fully operational in the 
+presence of a sinusoidal tolerance signal of amplitude given by Table 5-6, swept from 10 
+Hz to 10 MHz according to the methods of SFF-8431, section D.17.3. This emulates the 
+worst case noise output of the host. 
+ 
+5.6  ESD 
+Where ESD performance is not otherwise specified, e.g. in the InfiniBand specification, 
+the module shall meet ESD requirements given in EN61000-4-2, criterion B test 
+specification when installed in a properly grounded cage and chassis. The units are 
+subjected to 15kV air discharges during operation and 8kV direct contact discharges to 
+the case.  
+ 
+The module and host high speed signal contacts shall withstand 1000 V electrostatic 
+discharge based on Human Body Model per JEDEC JESD22-A114-B. 
+ 
+
+6  Mechanical and Board Definition 
+6.1  Introduction 
+The overall module defined in this clause is illustrated in Figure 6-1. All Pluggable 
+modules and direct attach cable plugs must mate to the connector and cage design defined 
+in this specification. The optical interface shall meet the dimensional specifications of 
+IEC 61754-7 interface 7-3, the MPO adapter interface, and shall optically mate with the 
+plug on the optical fiber cabling. Several cage-to-bezel options are possible. Both metal 
+spring finger and elastomeric EMI solutions are permitted but must pass customer defined 
+requirements. Heat sink/clip thermal designs are application specific and not defined by 
+this specification; however a general design is given as an example. 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 24   Published                                                              SFF-8679 Rev 1.7  
+ 
+
+
+                                                                                               
+                   FIGURE 6-1 PLUGGABLE AND DIRECT ATTACH MODULE RENDERING 
+6.2  Color Coding and Labeling of Modules 
+An exposed feature of the module (a feature or surface extending outside of the bezel) 
+shall be color coded as follows: 
+ 
+       Beige for 850nm 
+       Blue for 1310nm 
+       White for 1550nm 
+ 
+Each module shall be clearly labeled. The complete labeling need not be visible when the 
+module is installed and the bottom of the device is the recommended location for the 
+label. Labeling shall include: 
+ 
+       Appropriate manufacturing and part number identification 
+       Appropriate regulatory compliance labeling 
+       A manufacturing traceability code 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 25   Published                                                              SFF-8679 Rev 1.7  
+ 
+The label should also include clear specification of the external port characteristics 
+such as: 
+ 
+       Optical wavelength 
+       Required fiber characteristics 
+       Operating data rate 
+       Interface standards supported 
+       Link length supported 
+ 
+The labeling shall not interfere with the mechanical, thermal or EMI features. 
+ 
+6.3  Optical Interface 
+The optical interface port shall be either a male MPO connector as specified in IEC 
+61754-7 (see Figure 6-4) or a dual LC as specified in IEC 61754-20 (see Figure 6-5). 
+ 
+The four fiber positions on the left as shown in Figure 6-2, with the key up, are used 
+for the optical transmit signals (Channel 1 through 4). The fiber positions on the right 
+are used for the optical receive signals (Channel 4 through 1). 
+ 
+                              The central four fibers may be physically present. 
+                                     Two alignment pins are present. 
+
+
+                                                                               
+           FIGURE 6-2 OPTICAL RECEPTACLE AND CHANNEL ORIENTATION FOR MPO CONNECTOR 
+ 
+ 
+
+
+                                                                   
+        FIGURE 6-3 OPTICAL RECEPTACLE AND CHANNEL ORIENTATION FOR DUAL LC CONNECTOR 
+ 
+6.3.1  MPO Optical Cable Connection 
+Aligned key (Type B) MPO patch cords should be used to ensure alignment of the signals 
+between the modules. The aligned key patch cord is defined in TIA-568 and shown in Figure 
+6-4. The optical connector is orientated such that the keying feature of the MPO 
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 26   Published                                                              SFF-8679 Rev 1.7  
+ 
+receptacle is on the top. 
+ 
+
+
+                                                                         
+                                FIGURE 6-4 MPO OPTICAL PATCH CORD 
+ 
+6.3.2  Dual LC Optical Cable Connection 
+The Dual LC optical cable patch cord is defined in TIA/EIA-604-10A and shown in Figure 
+6-5. 
+
+
+                                                                          
+                              FIGURE 6-5 DUAL LC OPTICAL PATCH CORD 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 27   Published                                                              SFF-8679 Rev 1.7  
+ 
+7  Environmental and Thermal 
+7.1  Thermal Requirements 
+The module shall operate within one or more of the case temperatures ranges defined in 
+Table 7-1. The temperature ranges are applicable between 60m below sea level and 1800m 
+above sea level, (Ref. NEBS GR-63) utilizing the host systems designed airflow. 
+ 
+                         TABLE 7-1 TEMPERATURE RANGE CLASS OF OPERATION 
+                                Class Case Temperature Range 
+                               Standard             0 through 70C 
+                               Extended            -5 through 85C 
+                             Industrial            -40 through 85C 
+ 
+The design allows for up to 16 adjacent modules, ganged and/or belly-to-belly, with the 
+appropriate thermal design for cooling / airflow. (Ref. NEBS GR-63) 
+
+8  Timing Requirements 
+A block diagram illustrating the control and status signals between a host system and a 
+QSFP28 module is shown in Figure 8-1. Timing requirements for the signals SCL, SDA and 
+ModSelL are provided in the SFF-8636 Common Management Interface specification. Timing 
+requirements for the hardware signals ResetL, LPMode and IntL are provided in this 
+section. In addition the timing of control and status functions implemented via the two-
+wire interface are provided.  
+ 
+                      FIGURE 8-1 BLOCK DIAGRAM OF MODULE CONTROL SIGNALS 
+                                                             Host  Connector
+
+
+                                                                                                  
+ 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 28   Published                                                              SFF-8679 Rev 1.7  
+ 
+8.1  Soft Control and Status Timing Requirements 
+                     TABLE 8-1 SOFT CONTROL AND STATUS TIMING REQUIREMENTS 
+    Parameter Symbol Max Unit                                        Conditions 
+Initialization      t_init 2000             ms   Time from power on*2, hot plug or rising edge 
+time                                             of reset until the module is fully 
+                                                 functional*3. This time does not apply to 
+                                                 non-Power level 0 modules in Low Power State. 
+Reset Init          t_reset_init      2     us    A Reset is generated by a low level longer 
+Assert Time                                      than t_reset_init present on the ResetL 
+                                                 input. 
+Serial Bus          t_serial 2000           ms   Time from power on*2 until the module 
+Hardware Ready                                   responds to data transmission over the two-
+Time                                             wire serial bus. 
+Monitor Data        t_data 2000             ms   Time from power on*2 to DataNotReady, byte 2 
+Ready Time                                       bit 0, deasserted and IntL output asserted. 
+Reset Assert        t_reset 2000            ms   Time from a rising edge on the ResetL input 
+Time                                             until the module is fully functional*3. 
+LPMode Assert       ton_LPMode       100    us    Time from assertion of LPMode (Vin:LPMode = 
+Time                                             Vih) until module power consumption reaches 
+                                                 Power Level 1. 
+LPMode Deassert     toff_LPMode      300    ms    Time from deassertion of LPMode (Vin:LPMode = 
+Time                                             Vil) until module is fully functional*3,*5. 
+IntL Assert Time    ton_IntL         200    ms    Time from occurrence of condition triggering 
+                                                 IntL until Vout:IntL=Vol. 
+IntL Deassert       toff_IntL        500    us    Time from clear on read*4 operation of 
+Time                                             associated flag until Vout:IntL=Voh. This 
+                                                 includes deassert times for Rx LOS, Tx Fault 
+                                                 and other flag bits. 
+Rx LOS Assert       ton_LOS          100    ms    Time from Rx LOS state to Rx LOS bit set 
+Time                                             (value = 1b) and IntL asserted. 
+Tx Fault Assert     ton_Txfault      200    ms    Time from Tx Fault state to Tx Fault bit set 
+Time                                             (value = 1b) and IntL asserted. 
+Flag Assert Time    ton_flag         200    ms    Time from condition triggering flag to 
+                                                 associated flag bit set (value = 1b) and IntL 
+                                                 asserted. 
+Mask Assert Time    ton_mask         100    ms    Time from mask bit set (value = 1b)*1 until 
+                                                 associated IntL assertion is inhibited. 
+Mask Deassert       toff_mask        100    ms    Time from mask bit cleared (value = 0b)*1 
+Time                                             until associated IntL operation resumes. 
+Application or      t_ratesel        100    ms    Time from change of state of Application or 
+Rate Select                                      Rate Select bit*1 until transmitter or 
+Change Time                                      receiver bandwidth is in conformance with 
+                                                 appropriate specification. 
+Power_override      ton_Pdown        100    ms    Time from P_Down bit set (value = 1b)*1 until 
+or Power_set                                     module power consumption reaches Power Level 
+Assert Time                                      1. 
+Power_override      toff_Pdown       300    ms    Time from P_Down bit cleared (value = 0b)*1 
+or Power_set                                     until module is fully functional. 
+Deassert Time 
+*1 Measured from falling clock edge after STOP bit of write transaction. 
+*2 Power on is defined as the instant when supply voltages reach and remain at or above 
+the minimum level specified in Table 6. 
+*3 Fully functional is defined as IntL asserted due to DataNotReady, bit 0 byte 2, 
+deasserted. The module should also meet optical and electrical specifications. 
+*4 Measured from falling clock edge after STOP bit of read transaction. 
+*5 Does not apply to Power Level 1 modules. 
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 29   Published                                                              SFF-8679 Rev 1.7  
+ 
+8.2   Squelch and TxRx Disable Assert, Deassert and Enable/Disable Timing 
+Table 8-2 lists the required timing performance for assert, deassert, enable and disable 
+of the Tx Squelch, Rx Squelch, Tx Disable and Rx Output Disable functions. 
+ 
+                       TABLE 8-2 QSFP28 SQUELCH AND TXRX DISABLE TIMING 
+     Parameter Symbol Max Unit                                        Conditions 
+Rx Squelch Assert      ton_Rxsq        80     us    Time from loss of Rx input signal until the 
+Time                                                squelched output condition is reached. See 
+                                                    Subclause 4.1.3.1. 
+Rx Squelch             toff_Rxsq       80     us    Time from resumption of Rx input signals 
+Deassert Time                                       until normal Rx output condition is 
+                                                    reached. See Subclause 4.1.3.1. 
+Tx Squelch Assert      ton_Txsq       400     ms    Time from loss of Tx input signal until the 
+Time                                                squelched output condition is reached. See 
+                                                    Subclause 4.1.3.2. 
+Tx Squelch             toff_Txsq      400     ms    Time from resumption of Tx input signals 
+Deassert Time                                       until normal Rx output condition is 
+                                                    reached. See Subclause 4.1.3.2. 
+Tx Disable Assert      ton_TxDis      100     ms    Time from Tx Disable bit set (value = 1b)*1 
+Time                                                until optical output falls below 10% of 
+                                                    nominal. 
+Tx Disable             toff_TxDis     400     ms    Time from Tx Disable bit cleared (value = 
+Deassert Time                                       0b)*1 until optical output rises above 90% 
+                                                    of nominal. 
+Rx Output Disable      ton_RxDis      100     ms    Time from Rx Output Disable bit set (value 
+Assert Time                                         = 1b)*1 until Rx output falls below 10% of 
+                                                    nominal. 
+Rx Output Disable      toff_RxDis     100     ms    Time from Rx Output Disable bit cleared 
+Deassert Time                                       (value = 0b)*1 until Rx output rises above 
+                                                    90% of nominal. 
+Squelch Disable        ton_sqDIS      100     ms    This applies to Rx and Tx Squelch and is 
+Assert Time                                         the time from bit cleared (value =0b)*1 
+                                                    until squelch functionality is enabled. 
+Squelch Disable        toff_RxDis     100     ms    This applies to Rx and Tx Squelch and is 
+Deassert Time                                       the time from bit set (value =1b)*1 until 
+                                                    squelch functionality is disabled. 
+*1 Measured from falling clock edge after STOP bit of write transaction. 
+ 
+ 
+ 
+ 
+
+
+ 
+QSFP+ 4X Base Electrical Specification                                            Page 30  
