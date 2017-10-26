@@ -467,7 +467,8 @@ This specification covers the following items:
        the specification where the sole purpose of such disclosure is to enable products 
        to operate, connect or communicate as defined within the specifications. 
    d)  Timing requirements. 
- 3一般说明本规范涵盖以下项目： 
+ 3一般说明
+ 本规范涵盖以下项目： 
  a）电气规格。 （包括用于数据控制，状态，配置和测试信号的连接器触点分配）以及电连接器和推荐的主机PCB布局要求。 
  b）机械和电路板定义。 
  c）环境和热要求（箱体温度）。 带和不带模块安装在笼子时的电磁干扰（EMI）建议（包括必要的屏蔽功能，以从密封OEM机箱前面板输出，）。 静电放电（ESD）要求仅在本说明书所公开的范围内，其中这种公开的唯一目的是使产品能够在规格内定义进行操作，连接或通信。 d）时间要求
